@@ -377,6 +377,7 @@ const typeFilter = document.getElementById("typeFilter");
 const map = L.map("map", { scrollWheelZoom: true }).setView([42.02, 3.08], 9);
 const markersLayer = L.layerGroup().addTo(map);
 const markersByBeach = new Map();
+const pageQuery = new URLSearchParams(window.location.search);
 
 function currentLanguage() {
   return document.documentElement.lang || localStorage.getItem("costa-brava-language") || "ca";
@@ -528,6 +529,18 @@ function filterBeaches() {
   element.addEventListener("input", filterBeaches);
   element.addEventListener("change", filterBeaches);
 });
+
+if (pageQuery.has("q")) {
+  searchInput.value = pageQuery.get("q") || "";
+}
+
+if (pageQuery.has("zone")) {
+  zoneFilter.value = pageQuery.get("zone") || "all";
+}
+
+if (pageQuery.has("type")) {
+  typeFilter.value = pageQuery.get("type") || "all";
+}
 
 filterBeaches();
 

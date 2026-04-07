@@ -31,12 +31,21 @@ const I18N_TEXT = {
       ["Afegireu mes dades a cada fitxa?", "Si, la idea es ampliar amb coordenades, serveis, dificultat d'acces, estat del terreny i recomanacions de visita."]
     ],
     aboutKicker: "Qui som",
-    aboutTitle: "Un directori independent per descobrir racons de la Costa Brava",
+    aboutTitle: "Una parella arrelada a la Costa Brava que combina natura, viatges i cultura nudista",
     aboutText: [
-      "Aquest projecte neix amb una idea simple: reunir en un sol lloc una guia visual i clara de les platges nudistes de la Costa Brava, amb una mirada respectuosa, local i util.",
-      "No som una plataforma massiva ni una xarxa social. Volem una experiencia mes editorial: fitxes ben estructurades, navegacio rapida, mapa i comentaris per ajudar a contextualitzar cada platja."
+      "Som una parella que viu a la zona de la Costa Brava i que coneix el territori des de dins. Ens agrada explorar cales, camins, pobles i racons naturals, i compartir-los amb una mirada propera, respectuosa i practica.",
+      "A traves de Free Hiking, AC Explora i altres projectes vinculats, organitzem viatges, rutes i experiencies per a persones que volen connectar amb la natura, el territori i una manera mes lliure de viure el cos.",
+      "Promovem el nudisme, l'acceptacio corporal i les experiencies amb sentit: senderisme, escapades, viatges d'autor i activitats pensades per descobrir la Costa Brava i altres destinacions des d'una perspectiva conscient."
     ],
-    aboutStats: ["fitxes actives", "comarques cobertes", "guia estatica i cuidada"],
+    aboutStats: ["fitxes actives", "comarques cobertes", "criteri editorial propi"],
+    aboutTrustTitle: "Com treballem",
+    aboutTrustItems: [
+      "Coneixement directe del territori, les rutes i l'entorn natural de la Costa Brava.",
+      "Especialitzacio en viatges per a la comunitat nudista, senderisme nudista i activitats outdoor amb enfocament respectuos.",
+      "Projectes connectats amb viatges d'autor, e-bike, senderisme, massatge i tallers per a parelles."
+    ],
+    aboutLinksTitle: "Projectes i perfils relacionats",
+    aboutLinks: ["X Nudist Travel", "Instagram Travel NKD", "Free Hiking", "AC Explora"],
     detailNav: ["Platges", "Zones", "Consells"],
     detailLabels: {
       idealFor: "Ideal per",
@@ -77,12 +86,21 @@ const I18N_TEXT = {
       ["Vais a anadir mas datos a cada ficha?", "Si, la idea es ampliar con coordenadas, servicios, dificultad de acceso, estado del terreno y recomendaciones de visita."]
     ],
     aboutKicker: "Quienes somos",
-    aboutTitle: "Un directorio independiente para descubrir rincones de la Costa Brava",
+    aboutTitle: "Una pareja arraigada en la Costa Brava que une naturaleza, viajes y cultura nudista",
     aboutText: [
-      "Este proyecto nace con una idea simple: reunir en un solo lugar una guia visual y clara de las playas nudistas de la Costa Brava, con una mirada respetuosa, local y util.",
-      "No somos una plataforma masiva ni una red social. Queremos una experiencia mas editorial: fichas bien estructuradas, navegacion rapida, mapa y comentarios para ayudar a contextualizar cada playa."
+      "Somos una pareja que vive en la zona de la Costa Brava y que conoce el territorio desde dentro. Nos apasiona explorar calas, caminos, pueblos y rincones naturales, y compartirlos con una mirada cercana, respetuosa y practica.",
+      "A traves de Free Hiking, AC Explora y otros proyectos vinculados, organizamos viajes, rutas y experiencias para personas que quieren conectar con la naturaleza, el territorio y una forma mas libre de vivir el cuerpo.",
+      "Promovemos el nudismo, la aceptacion corporal y las experiencias con sentido: senderismo, escapadas, viajes de autor y actividades pensadas para descubrir la Costa Brava y otros destinos desde una perspectiva consciente."
     ],
-    aboutStats: ["fichas activas", "comarcas cubiertas", "guia estatica y cuidada"],
+    aboutStats: ["fichas activas", "comarcas cubiertas", "criterio editorial propio"],
+    aboutTrustTitle: "Como trabajamos",
+    aboutTrustItems: [
+      "Conocimiento directo del territorio, las rutas y el entorno natural de la Costa Brava.",
+      "Especializacion en viajes para la comunidad nudista, senderismo nudista y actividades outdoor con enfoque respetuoso.",
+      "Proyectos conectados con viajes de autor, e-bike, senderismo, masaje y talleres para parejas."
+    ],
+    aboutLinksTitle: "Proyectos y perfiles relacionados",
+    aboutLinks: ["X Nudist Travel", "Instagram Travel NKD", "Free Hiking", "AC Explora"],
     detailNav: ["Playas", "Zonas", "Consejos"],
     detailLabels: {
       idealFor: "Ideal para",
@@ -123,12 +141,21 @@ const I18N_TEXT = {
       ["Will you add more data to each profile?", "Yes. The idea is to expand each page with coordinates, facilities, access difficulty, terrain and visit recommendations."]
     ],
     aboutKicker: "About",
-    aboutTitle: "An independent directory to discover Costa Brava spots",
+    aboutTitle: "A Costa Brava-based couple connecting nature, travel and nudist culture",
     aboutText: [
-      "This project was born from a simple idea: gather in one place a clear and visual guide to nudist beaches on the Costa Brava, with a respectful, local and useful perspective.",
-      "We are not a massive platform or a social network. We want a more editorial experience: well-structured profiles, fast navigation, map context and comments that help frame each beach."
+      "We are a couple living in the Costa Brava area, deeply connected to the territory and its natural landscape. We love exploring coves, trails, villages and hidden corners, then sharing them through a close, practical and respectful lens.",
+      "Through Free Hiking, AC Explora and related projects, we organise trips, routes and experiences for people who want to connect with nature, place and a freer way of inhabiting the body.",
+      "We promote naturism, body acceptance and meaningful experiences: hiking, authored trips, local escapes and outdoor activities designed to discover the Costa Brava and other destinations more consciously."
     ],
-    aboutStats: ["active profiles", "covered areas", "carefully built static guide"],
+    aboutStats: ["active profiles", "covered areas", "independent editorial criteria"],
+    aboutTrustTitle: "How we work",
+    aboutTrustItems: [
+      "First-hand knowledge of the Costa Brava, its routes and its natural environment.",
+      "Specialisation in nudist travel, nudist hiking and respectful outdoor experiences.",
+      "Connected projects spanning authored travel, e-bike routes, hiking, massage and couples workshops."
+    ],
+    aboutLinksTitle: "Related projects and profiles",
+    aboutLinks: ["X Nudist Travel", "Instagram Travel NKD", "Free Hiking", "AC Explora"],
     detailNav: ["Beaches", "Areas", "Tips"],
     detailLabels: {
       idealFor: "Ideal for",
@@ -169,12 +196,21 @@ const I18N_TEXT = {
       ["Allez-vous ajouter plus de donnees a chaque fiche?", "Oui. L'idee est d'ajouter coordonnees, services, difficulte d'acces, etat du terrain et recommandations de visite."]
     ],
     aboutKicker: "Qui sommes-nous",
-    aboutTitle: "Un annuaire independant pour decouvrir des coins de la Costa Brava",
+    aboutTitle: "Un couple ancre sur la Costa Brava, entre nature, voyage et culture nudiste",
     aboutText: [
-      "Ce projet est ne d'une idee simple: reunir dans un seul endroit un guide visuel et clair des plages nudistes de la Costa Brava, avec un regard respectueux, local et utile.",
-      "Nous ne sommes ni une plateforme massive ni un reseau social. Nous voulons une experience plus editoriale: fiches bien structurees, navigation rapide, carte et commentaires pour contextualiser chaque plage."
+      "Nous sommes un couple qui vit dans la zone de la Costa Brava et qui connait le territoire de l'interieur. Nous aimons explorer criques, sentiers, villages et coins naturels, puis les partager avec un regard proche, utile et respectueux.",
+      "A travers Free Hiking, AC Explora et d'autres projets lies, nous organisons des voyages, des itinerares et des experiences pour les personnes qui veulent se reconnecter a la nature, au territoire et a une relation plus libre au corps.",
+      "Nous promouvons le naturisme, l'acceptation du corps et les experiences qui ont du sens: randonnee, escapades, voyages d'auteur et activites outdoor pour decouvrir la Costa Brava et d'autres destinations avec plus de conscience."
     ],
-    aboutStats: ["fiches actives", "zones couvertes", "guide statique soigne"],
+    aboutStats: ["fiches actives", "zones couvertes", "ligne editoriale propre"],
+    aboutTrustTitle: "Notre methode",
+    aboutTrustItems: [
+      "Connaissance directe du territoire, des itineraires et de l'environnement naturel de la Costa Brava.",
+      "Specialisation dans les voyages pour la communaute nudiste, la randonnee nudiste et les activites outdoor respectueuses.",
+      "Des projets relies au voyage d'auteur, au velo electrique, a la randonnee, au massage et aux ateliers pour couples."
+    ],
+    aboutLinksTitle: "Profils et projets lies",
+    aboutLinks: ["X Nudist Travel", "Instagram Travel NKD", "Free Hiking", "AC Explora"],
     detailNav: ["Plages", "Zones", "Conseils"],
     detailLabels: {
       idealFor: "Ideal pour",
@@ -190,6 +226,10 @@ const I18N_TEXT = {
 window.COSTA_BRAVA_I18N = {
   dictionaries: I18N_TEXT
 };
+
+function absoluteUrl(path) {
+  return new URL(path, window.location.href).href;
+}
 
 function logoAssetPath() {
   const path = window.location.pathname.replace(/\\/g, "/");
@@ -262,6 +302,108 @@ function safeSetAll(selector, values) {
   });
 }
 
+function homeSchemaText(language, t) {
+  const dictionary = {
+    ca: {
+      organizationDescription: "Projecte editorial d'una parella arrelada a la Costa Brava, especialitzada en platges nudistes, senderisme, viatges i experiencies outdoor amb enfocament respectuos.",
+      websiteName: "Costa Brava Nude Guide"
+    },
+    es: {
+      organizationDescription: "Proyecto editorial de una pareja arraigada en la Costa Brava, especializada en playas nudistas, senderismo, viajes y experiencias outdoor con enfoque respetuoso.",
+      websiteName: "Costa Brava Nude Guide"
+    },
+    en: {
+      organizationDescription: "Editorial project by a Costa Brava-based couple specialising in nudist beaches, hiking, travel and respectful outdoor experiences.",
+      websiteName: "Costa Brava Nude Guide"
+    },
+    fr: {
+      organizationDescription: "Projet editorial porte par un couple ancre sur la Costa Brava, specialise dans les plages nudistes, la randonnee, le voyage et les experiences outdoor respectueuses.",
+      websiteName: "Costa Brava Nude Guide"
+    }
+  };
+
+  return dictionary[language] || dictionary.ca;
+}
+
+function renderHomeStructuredData(language, t) {
+  if (!document.body.classList.contains("app-home")) {
+    return;
+  }
+
+  document.querySelectorAll('script[data-schema="organization"], script[data-schema="website"]').forEach((node) => {
+    node.remove();
+  });
+
+  const schemaText = homeSchemaText(language, t);
+  const homeUrl = window.location.href;
+  const logoUrl = absoluteUrl(document.body.classList.contains("app-home") ? "../logo2.PNG" : "logo2.PNG");
+  const searchTarget = `${window.location.origin}${window.location.pathname}?q={search_term_string}`;
+
+  const organization = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Costa Brava Nude Guide",
+    url: homeUrl,
+    logo: logoUrl,
+    image: logoUrl,
+    description: schemaText.organizationDescription,
+    sameAs: [
+      "https://x.com/NudistTravel",
+      "https://www.instagram.com/travel_nkd",
+      "https://freehiking.eu/",
+      "https://acexplora.com/"
+    ],
+    areaServed: [
+      {
+        "@type": "Place",
+        name: "Costa Brava"
+      },
+      {
+        "@type": "Place",
+        name: "Catalunya"
+      },
+      {
+        "@type": "Country",
+        name: "Spain"
+      }
+    ],
+    knowsAbout: [
+      "Nudist beaches",
+      "Costa Brava travel",
+      "Naturism",
+      "Beach access guidance",
+      "Outdoor travel"
+    ]
+  };
+
+  const website = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: schemaText.websiteName,
+    url: homeUrl,
+    inLanguage: language,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: searchTarget
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  [
+    { key: "organization", data: organization },
+    { key: "website", data: website }
+  ].forEach((entry) => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.dataset.schema = entry.key;
+    script.textContent = JSON.stringify(entry.data);
+    document.head.appendChild(script);
+  });
+}
+
 function applyHomeTranslations(t) {
   safeSetAll(".site-nav a", t.nav);
   safeSetText(".lang-switcher span", t.langLabel);
@@ -305,6 +447,10 @@ function applyHomeTranslations(t) {
   safeSetText("#qui-som h2", t.aboutTitle);
   safeSetAll("#qui-som .about-copy p", t.aboutText);
   safeSetAll("#qui-som .about-stat span", t.aboutStats);
+  safeSetText("#qui-som .about-trust h3", t.aboutTrustTitle);
+  safeSetAll("#qui-som .about-trust li", t.aboutTrustItems);
+  safeSetText("#qui-som .about-links h3", t.aboutLinksTitle);
+  safeSetAll("#qui-som .about-links a", t.aboutLinks);
 }
 
 function applyDetailTranslations(t) {
@@ -370,6 +516,7 @@ function applyTranslations(language) {
   if (document.body.classList.contains("detail-page")) {
     applyDetailTranslations(t);
   }
+  renderHomeStructuredData(language, t);
   window.dispatchEvent(new CustomEvent("costa-brava-language-change", { detail: { language, dictionary: t } }));
 }
 

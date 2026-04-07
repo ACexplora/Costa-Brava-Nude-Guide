@@ -1,11 +1,7 @@
+﻿const BEACH_CONTENT = window.COSTA_BRAVA_BEACH_CONTENT || {};
+
 function textOf(selector) {
   return document.querySelector(selector)?.textContent?.trim() || "";
-}
-
-function listText(selector) {
-  return Array.from(document.querySelectorAll(selector))
-    .map((item) => item.textContent.trim())
-    .filter(Boolean);
 }
 
 function slugValue() {
@@ -20,7 +16,7 @@ function extractBackgroundImage(selector) {
 }
 
 function currentLanguage() {
-  return localStorage.getItem("costa-brava-language") || "ca";
+  return document.documentElement.lang || localStorage.getItem("costa-brava-language") || "ca";
 }
 
 function detailUiText() {
@@ -171,6 +167,224 @@ function detailUiText() {
   return dictionary[language] || dictionary.ca;
 }
 
+function mergeBeachTranslation(base = {}, override = {}) {
+  return {
+    ...base,
+    ...override,
+    seo: { ...(base.seo || {}), ...(override.seo || {}) },
+    meta: Array.isArray(override.meta) && override.meta.length ? override.meta : (base.meta || []),
+    highlights: Array.isArray(override.highlights) && override.highlights.length ? override.highlights : (base.highlights || []),
+    sections: Array.isArray(override.sections) && override.sections.length ? override.sections : (base.sections || [])
+  };
+}
+
+function detailContentForPage() {
+  const entry = BEACH_CONTENT[slugValue()];
+  if (!entry) {
+    return null;
+  }
+
+  const base = entry.translations?.ca || {};
+  const override = entry.translations?.[currentLanguage()] || {};
+  return {
+    image: entry.image,
+    slug: entry.slug,
+    ...mergeBeachTranslation(base, override)
+  };
+}
+
+function absoluteUrl(path) {
+  return new URL(path, window.location.href).href;
+}
+
+function breadcrumbName() {
+  const language = currentLanguage();
+  const dictionary = {
+    ca: "Platges",
+    es: "Playas",
+    en: "Beaches",
+    fr: "Plages"
+  };
+  return dictionary[language] || dictionary.ca;
+}
+
+function renderStructuredData(content) {
+  if (!content) {
+    return;
+  }
+
+  document.querySelectorAll('script[data-schema="tourist-attraction"], script[data-schema="breadcrumb"]').forEach((node) => {
+    node.remove();
+  });
+
+  const metaItems = Array.isArray(content.meta) ? content.meta : [];
+  const locality = metaItems[0] || "";
+  const access = metaItems[1] || "";
+  const vibe = metaItems[2] || "";
+  const description = content.seo?.description || content.intro || "";
+  const pageUrl = window.location.href;
+  const collectionUrl = absoluteUrl("../index.html#platges");
+
+  const touristAttraction = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    name: content.title,
+    description,
+    url: pageUrl,
+    mainEntityOfPage: pageUrl,
+    image: content.image,
+    publicAccess: true,
+    isAccessibleForFree: true,
+    touristType: vibe || undefined,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: locality || undefined,
+      addressRegion: content.eyebrow || undefined,
+      addressCountry: "ES"
+    },
+    containedInPlace: {
+      "@type": "Place",
+      name: "Costa Brava"
+    },
+    keywords: Array.isArray(content.highlights) ? content.highlights.join(", ") : undefined,
+    additionalProperty: access ? [
+      {
+        "@type": "PropertyValue",
+        name: "Access",
+        value: access
+      }
+    ] : undefined
+  };
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Costa Brava Nude Guide",
+        item: absoluteUrl("../index.html")
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: breadcrumbName(),
+        item: collectionUrl
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: content.title,
+        item: pageUrl
+      }
+    ]
+  };
+
+  [
+    { key: "tourist-attraction", data: touristAttraction },
+    { key: "breadcrumb", data: breadcrumb }
+  ].forEach((entry) => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.dataset.schema = entry.key;
+    script.textContent = JSON.stringify(entry.data);
+    document.head.appendChild(script);
+  });
+}
+
+function renderSimpleList(container, items) {
+  if (!container) {
+    return;
+  }
+
+  container.innerHTML = "";
+  items.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    container.appendChild(li);
+  });
+}
+
+function renderDetailSections(sections) {
+  const detailContent = document.querySelector(".detail-content");
+  if (!detailContent || !Array.isArray(sections) || sections.length === 0) {
+    return;
+  }
+
+  detailContent.innerHTML = "";
+  sections.slice(0, 2).forEach((section, index) => {
+    const node = document.createElement(index === 0 ? "article" : "aside");
+    node.className = "detail-section";
+
+    if (section.kicker) {
+      const kicker = document.createElement("p");
+      kicker.className = "section-kicker";
+      kicker.textContent = section.kicker;
+      node.appendChild(kicker);
+    }
+
+    if (section.title) {
+      const title = document.createElement("h2");
+      title.textContent = section.title;
+      node.appendChild(title);
+    }
+
+    (section.paragraphs || []).forEach((paragraph) => {
+      const p = document.createElement("p");
+      p.textContent = paragraph;
+      node.appendChild(p);
+    });
+
+    if (section.items && section.items.length) {
+      const ul = document.createElement("ul");
+      section.items.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      node.appendChild(ul);
+    }
+
+    detailContent.appendChild(node);
+  });
+}
+
+function renderDetailContent() {
+  const content = detailContentForPage();
+  if (!content) {
+    return;
+  }
+
+  const eyebrow = document.querySelector(".detail-copy .eyebrow");
+  const title = document.querySelector(".detail-copy h1");
+  const intro = document.querySelector(".detail-intro");
+  const metaList = document.querySelector(".detail-meta");
+  const highlightsList = document.querySelector(".detail-highlights");
+  const aside = document.querySelector(".detail-aside");
+  const idealFor = document.querySelector(".detail-aside-card p:last-child");
+  const metaDescription = document.querySelector('meta[name="description"]');
+
+  if (eyebrow) eyebrow.textContent = content.eyebrow || eyebrow.textContent;
+  if (title) title.textContent = content.title || title.textContent;
+  if (intro) intro.textContent = content.intro || intro.textContent;
+  if (idealFor) idealFor.textContent = content.idealFor || idealFor.textContent;
+  if (aside && content.image) {
+    aside.style.backgroundImage = `url('${content.image}')`;
+  }
+
+  renderSimpleList(metaList, content.meta || []);
+  renderSimpleList(highlightsList, content.highlights || []);
+  renderDetailSections(content.sections || []);
+
+  if (content.seo?.title) {
+    document.title = content.seo.title;
+  }
+  if (metaDescription && content.seo?.description) {
+    metaDescription.setAttribute("content", content.seo.description);
+  }
+}
+
 function galleryDataForPage() {
   const heroImage = extractBackgroundImage(".detail-aside");
   const beachName = textOf(".detail-copy h1");
@@ -243,10 +457,11 @@ function buildDetailInsights() {
 
   const beachName = textOf(".detail-copy h1");
   const texts = detailUiText();
-  const location = listText(".detail-meta li")[0] || texts.locationFallback;
-  const access = listText(".detail-meta li")[1] || texts.accessFallback;
-  const vibe = listText(".detail-meta li")[2] || texts.vibeFallback;
-  const highlights = listText(".detail-highlights li");
+  const metaItems = Array.from(document.querySelectorAll(".detail-meta li")).map((item) => item.textContent.trim());
+  const location = metaItems[0] || texts.locationFallback;
+  const access = metaItems[1] || texts.accessFallback;
+  const vibe = metaItems[2] || texts.vibeFallback;
+  const highlights = Array.from(document.querySelectorAll(".detail-highlights li")).map((item) => item.textContent.trim());
   const intro = textOf(".detail-intro");
   const idealFor = textOf(".detail-aside-card p:last-child");
 
@@ -355,10 +570,17 @@ function buildDetailGallery() {
   setActive(0);
 }
 
-buildDetailGallery();
-buildDetailInsights();
-
-window.addEventListener("costa-brava-language-change", () => {
+function refreshDetailPage() {
+  const content = detailContentForPage();
+  renderDetailContent();
   buildDetailGallery();
   buildDetailInsights();
+  renderStructuredData(content);
+}
+
+refreshDetailPage();
+
+window.addEventListener("costa-brava-language-change", () => {
+  refreshDetailPage();
 });
+
