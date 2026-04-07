@@ -84,6 +84,17 @@ a {
   gap: 0.8rem;
 }
 
+.brand-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(19, 38, 41, 0.08);
+  padding: 0.2rem;
+  box-shadow: 0 10px 22px rgba(8, 60, 68, 0.1);
+}
+
 .brand-mark {
   width: 42px;
   height: 42px;
@@ -101,6 +112,7 @@ a {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   font-size: 0.92rem;
+  line-height: 1.1;
 }
 
 .site-nav {

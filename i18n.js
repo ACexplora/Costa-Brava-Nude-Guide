@@ -191,6 +191,47 @@ window.COSTA_BRAVA_I18N = {
   dictionaries: I18N_TEXT
 };
 
+function logoAssetPath() {
+  return document.body.classList.contains("detail-page") ? "../logo2.PNG" : "logo2.PNG";
+}
+
+function ensureBranding() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  const existingWrap = header.querySelector(".brand-wrap");
+  const brandNode = existingWrap?.querySelector(".brand") || header.querySelector(".brand");
+  if (!brandNode) return;
+
+  const brandText = brandNode.textContent.trim() || "Costa Brava Nude Guide";
+  const wrap = existingWrap || document.createElement("div");
+  wrap.className = "brand-wrap";
+
+  let logo = wrap.querySelector(".brand-logo");
+  if (!logo) {
+    logo = document.createElement("img");
+    logo.className = "brand-logo";
+    logo.alt = brandText;
+    wrap.prepend(logo);
+  }
+  logo.src = logoAssetPath();
+
+  if (!wrap.querySelector(".brand")) {
+    const label = document.createElement("div");
+    label.className = "brand";
+    label.textContent = brandText;
+    wrap.appendChild(label);
+  } else {
+    wrap.querySelector(".brand").textContent = brandText;
+  }
+
+  wrap.querySelector(".brand-mark")?.remove();
+
+  if (!existingWrap) {
+    brandNode.replaceWith(wrap);
+  }
+}
+
 function getCurrentLanguage() {
   return localStorage.getItem(I18N_STORAGE_KEY) || "ca";
 }
@@ -292,6 +333,7 @@ function ensureLanguageSelector() {
 function applyTranslations(language) {
   const t = I18N_TEXT[language] || I18N_TEXT.ca;
   setCurrentLanguage(language);
+  ensureBranding();
   ensureLanguageSelector();
   const switcher = document.getElementById("languageSwitcher");
   if (switcher) switcher.value = language;
@@ -306,6 +348,7 @@ function applyTranslations(language) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const language = getCurrentLanguage();
+  ensureBranding();
   applyTranslations(language);
   const switcher = document.getElementById("languageSwitcher");
   if (switcher) {
