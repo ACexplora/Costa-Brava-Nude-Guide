@@ -379,7 +379,7 @@ const markersLayer = L.layerGroup().addTo(map);
 const markersByBeach = new Map();
 
 function currentLanguage() {
-  return localStorage.getItem("costa-brava-language") || "ca";
+  return document.documentElement.lang || localStorage.getItem("costa-brava-language") || "ca";
 }
 
 function uiText() {

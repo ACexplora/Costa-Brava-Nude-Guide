@@ -192,7 +192,15 @@ window.COSTA_BRAVA_I18N = {
 };
 
 function logoAssetPath() {
-  return document.body.classList.contains("detail-page") ? "../logo2.PNG" : "logo2.PNG";
+  const path = window.location.pathname.replace(/\\/g, "/");
+  const parts = path.split("/").filter(Boolean);
+  const hasLanguageFolder = parts.some((part) => ["ca", "es", "en", "fr"].includes(part));
+
+  if (!hasLanguageFolder) {
+    return document.body.classList.contains("detail-page") ? "../logo2.PNG" : "logo2.PNG";
+  }
+
+  return document.body.classList.contains("detail-page") ? "../../logo2.PNG" : "../logo2.PNG";
 }
 
 function ensureBranding() {
@@ -233,7 +241,7 @@ function ensureBranding() {
 }
 
 function getCurrentLanguage() {
-  return localStorage.getItem(I18N_STORAGE_KEY) || "ca";
+  return document.documentElement.lang || localStorage.getItem(I18N_STORAGE_KEY) || "ca";
 }
 
 function setCurrentLanguage(language) {
@@ -330,6 +338,25 @@ function ensureLanguageSelector() {
   siteHeader.appendChild(wrapper);
 }
 
+function localizedPath(language) {
+  const currentPath = window.location.pathname.replace(/\\/g, "/");
+  const parts = currentPath.split("/").filter(Boolean);
+  const knownLanguages = new Set(["ca", "es", "en", "fr"]);
+  const endsWithSlash = currentPath.endsWith("/");
+  const languageIndex = parts.findIndex((part) => knownLanguages.has(part));
+
+  if (languageIndex >= 0) {
+    parts[languageIndex] = language;
+    return `/${parts.join("/")}${endsWithSlash ? "/" : ""}`;
+  }
+
+  if (parts.length === 0) {
+    return `/${language}/`;
+  }
+
+  return `/${[parts[0], language, ...parts.slice(1)].join("/")}`;
+}
+
 function applyTranslations(language) {
   const t = I18N_TEXT[language] || I18N_TEXT.ca;
   setCurrentLanguage(language);
@@ -353,7 +380,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const switcher = document.getElementById("languageSwitcher");
   if (switcher) {
     switcher.addEventListener("change", (event) => {
-      applyTranslations(event.target.value);
+      const selectedLanguage = event.target.value;
+      localStorage.setItem(I18N_STORAGE_KEY, selectedLanguage);
+      window.location.href = localizedPath(selectedLanguage);
     });
   }
 });
