@@ -644,6 +644,90 @@ h3 {
   gap: 1rem;
 }
 
+.detail-gallery {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto 1.4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.gallery-stage,
+.gallery-thumbs button {
+  border: 1px solid rgba(255,255,255,0.58);
+  box-shadow: var(--shadow-soft);
+}
+
+.gallery-stage {
+  position: relative;
+  overflow: hidden;
+  min-height: 460px;
+  border-radius: 30px;
+  background: #d9d1c6 center/cover no-repeat;
+}
+
+.gallery-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 60, 69, 0.04), rgba(7, 60, 69, 0.32));
+}
+
+.gallery-stage-info {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  max-width: 430px;
+  padding: 1rem 1.1rem;
+  border-radius: 22px;
+  background: rgba(255, 249, 243, 0.84);
+  backdrop-filter: blur(12px);
+}
+
+.gallery-stage-info p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.gallery-thumbs button {
+  min-height: 116px;
+  border-radius: 22px;
+  background: #d9d1c6 center/cover no-repeat;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-thumbs button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 60, 69, 0.04), rgba(7, 60, 69, 0.24));
+}
+
+.gallery-thumbs button.is-active {
+  outline: 2px solid rgba(10, 115, 122, 0.55);
+  transform: translateY(-2px);
+}
+
+.gallery-thumbs button span {
+  position: absolute;
+  left: 0.8rem;
+  bottom: 0.8rem;
+  z-index: 1;
+  color: white;
+  font-weight: 800;
+  text-align: left;
+}
+
 .insights-grid,
 .snapshot-grid {
   display: grid;
@@ -744,7 +828,8 @@ h3 {
   .hero,
   .filter-bar,
   .info-strip,
-  .beach-grid {
+  .beach-grid,
+  .gallery-thumbs {
     grid-template-columns: 1fr;
   }
 
@@ -769,6 +854,10 @@ h3 {
   }
 
   .hero-panel {
+    min-height: 320px;
+  }
+
+  .gallery-stage {
     min-height: 320px;
   }
 }
