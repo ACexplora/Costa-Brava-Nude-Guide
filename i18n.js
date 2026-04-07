@@ -337,6 +337,7 @@ function renderHomeStructuredData(language, t) {
   const schemaText = homeSchemaText(language, t);
   const homeUrl = window.location.href;
   const logoUrl = absoluteUrl(document.body.classList.contains("app-home") ? "../logo2.PNG" : "logo2.PNG");
+  const foundersImageUrl = absoluteUrl(document.body.classList.contains("app-home") ? "../assets-about-couple.png" : "assets-about-couple.png");
   const searchTarget = `${window.location.origin}${window.location.pathname}?q={search_term_string}`;
 
   const organization = {
@@ -345,8 +346,26 @@ function renderHomeStructuredData(language, t) {
     name: "Costa Brava Nude Guide",
     url: homeUrl,
     logo: logoUrl,
-    image: logoUrl,
+    image: [logoUrl, foundersImageUrl],
     description: schemaText.organizationDescription,
+    foundingLocation: {
+      "@type": "Place",
+      name: "Costa Brava"
+    },
+    founder: [
+      {
+        "@type": "Person",
+        name: "Equip fundador Costa Brava Nude Guide",
+        image: foundersImageUrl,
+        sameAs: [
+          "https://x.com/NudistTravel",
+          "https://www.instagram.com/travel_nkd",
+          "https://freehiking.eu/",
+          "https://acexplora.com/"
+        ]
+      }
+    ],
+    subjectOf: absoluteUrl("#qui-som"),
     sameAs: [
       "https://x.com/NudistTravel",
       "https://www.instagram.com/travel_nkd",

@@ -649,6 +649,26 @@ h3 {
   padding: 1.6rem;
 }
 
+.about-photo {
+  display: block;
+  width: min(280px, 100%);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 0 1.2rem;
+  border-radius: 50%;
+  border: 8px solid rgba(10, 115, 122, 0.18);
+  box-shadow: 0 18px 34px rgba(8, 60, 68, 0.14);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.about-photo-caption {
+  max-width: 32ch;
+  margin: -0.25rem 0 1.15rem;
+  color: var(--accent-strong);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .about-copy p {
   color: var(--muted);
   line-height: 1.7;
