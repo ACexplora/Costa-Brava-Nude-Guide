@@ -3,7 +3,9 @@ function textOf(selector) {
 }
 
 function listText(selector) {
-  return Array.from(document.querySelectorAll(selector)).map((item) => item.textContent.trim()).filter(Boolean);
+  return Array.from(document.querySelectorAll(selector))
+    .map((item) => item.textContent.trim())
+    .filter(Boolean);
 }
 
 function slugValue() {
@@ -17,10 +19,163 @@ function extractBackgroundImage(selector) {
   return match ? match[1] : "";
 }
 
+function currentLanguage() {
+  return localStorage.getItem("costa-brava-language") || "ca";
+}
+
+function detailUiText() {
+  const language = currentLanguage();
+  const dictionary = {
+    ca: {
+      gallery: "Galeria",
+      viewLabel: "Vista",
+      mainImage: "Imatge principal de",
+      supportingImage: "Vista complementaria per entendre millor l'entorn i el tipus de platja.",
+      location: "Ubicacio",
+      access: "Acces",
+      vibe: "Ambient",
+      idealFor: "Ideal per",
+      best: "El millor",
+      note: "A tenir en compte",
+      profile: "Ambient i perfil",
+      directions: "Com arribar-hi",
+      bestBody: "Aquesta fitxa posa en valor el caracter del lloc i els elements que la fan especial dins del directori.",
+      fallbackHighlights: ["Entorn natural", "Experiencia local", "Bona candidata per ampliar la guia"],
+      noteBody: "Com en moltes cales i platges d'aquest directori, abans de sortir conve revisar l'acces real, l'afluencia segons temporada i si cal portar aigua o calcat adequat.",
+      noteList: [
+        "Revisar l'acces abans de la visita",
+        "Comprovar estat del mar i del temps",
+        "Tenir en compte temporada alta i afluencia"
+      ],
+      profileFallback: "Una platja pensada per a usuaris que volen mes context abans de decidir on anar.",
+      profileExperience: "Tipus d'experiencia",
+      profileReferences: "Referencies rapides",
+      pending: "pendent d'afinar",
+      directionsBody: "La fitxa mante un enfocament editorial i prudent: no pressuposa una ruta exacta si no la tenim confirmada, pero si et dona context per preparar millor la visita.",
+      directionsBase: "Punt base actual",
+      directionsAccess: "Indicacio d'acces",
+      directionsNext: "Val la pena afegir una ruta precisa en una seguent iteracio",
+      locationFallback: "Ubicacio per completar",
+      accessFallback: "Acces per confirmar",
+      vibeFallback: "Ambient per confirmar",
+      idealFallbackPrefix: "Visitar",
+      idealFallbackSuffix: "amb una expectativa clara del tipus d'experiencia."
+    },
+    es: {
+      gallery: "Galeria",
+      viewLabel: "Vista",
+      mainImage: "Imagen principal de",
+      supportingImage: "Vista complementaria para entender mejor el entorno y el tipo de playa.",
+      location: "Ubicacion",
+      access: "Acceso",
+      vibe: "Ambiente",
+      idealFor: "Ideal para",
+      best: "Lo mejor",
+      note: "A tener en cuenta",
+      profile: "Ambiente y perfil",
+      directions: "Como llegar",
+      bestBody: "Esta ficha pone en valor el caracter del lugar y los elementos que la hacen especial dentro del directorio.",
+      fallbackHighlights: ["Entorno natural", "Experiencia local", "Buena candidata para ampliar la guia"],
+      noteBody: "Como en muchas calas y playas de este directorio, antes de salir conviene revisar el acceso real, la afluencia segun la temporada y si hace falta llevar agua o calzado adecuado.",
+      noteList: [
+        "Revisar el acceso antes de la visita",
+        "Comprobar el estado del mar y del tiempo",
+        "Tener en cuenta temporada alta y afluencia"
+      ],
+      profileFallback: "Una playa pensada para personas que quieren mas contexto antes de decidir adonde ir.",
+      profileExperience: "Tipo de experiencia",
+      profileReferences: "Referencias rapidas",
+      pending: "pendiente de afinar",
+      directionsBody: "La ficha mantiene un enfoque editorial y prudente: no presupone una ruta exacta si no la tenemos confirmada, pero si te da contexto para preparar mejor la visita.",
+      directionsBase: "Punto base actual",
+      directionsAccess: "Indicacion de acceso",
+      directionsNext: "Vale la pena anadir una ruta precisa en una siguiente iteracion",
+      locationFallback: "Ubicacion por completar",
+      accessFallback: "Acceso por confirmar",
+      vibeFallback: "Ambiente por confirmar",
+      idealFallbackPrefix: "Visitar",
+      idealFallbackSuffix: "con una expectativa clara del tipo de experiencia."
+    },
+    en: {
+      gallery: "Gallery",
+      viewLabel: "View",
+      mainImage: "Main image of",
+      supportingImage: "Supporting view to better understand the setting and the beach type.",
+      location: "Location",
+      access: "Access",
+      vibe: "Vibe",
+      idealFor: "Ideal for",
+      best: "Best bits",
+      note: "Things to keep in mind",
+      profile: "Vibe and profile",
+      directions: "How to get there",
+      bestBody: "This profile highlights the character of the place and the elements that make it stand out within the directory.",
+      fallbackHighlights: ["Natural setting", "Local feel", "Strong candidate for a richer guide"],
+      noteBody: "As with many coves and beaches in this directory, it is worth checking real access conditions, seasonal crowds and whether you should bring water or suitable footwear before heading out.",
+      noteList: [
+        "Check access before visiting",
+        "Review sea and weather conditions",
+        "Keep peak season and crowd levels in mind"
+      ],
+      profileFallback: "A beach profile designed for visitors who want more context before deciding where to go.",
+      profileExperience: "Experience type",
+      profileReferences: "Quick references",
+      pending: "still to refine",
+      directionsBody: "This page keeps an editorial and careful approach: it does not assume an exact route unless confirmed, but it still gives you enough context to plan the visit better.",
+      directionsBase: "Current base point",
+      directionsAccess: "Access note",
+      directionsNext: "It would be worth adding a precise route in a future iteration",
+      locationFallback: "Location to complete",
+      accessFallback: "Access to confirm",
+      vibeFallback: "Vibe to confirm",
+      idealFallbackPrefix: "Visit",
+      idealFallbackSuffix: "with a clear expectation of the type of experience."
+    },
+    fr: {
+      gallery: "Galerie",
+      viewLabel: "Vue",
+      mainImage: "Image principale de",
+      supportingImage: "Vue complementaire pour mieux comprendre l'environnement et le type de plage.",
+      location: "Emplacement",
+      access: "Acces",
+      vibe: "Ambiance",
+      idealFor: "Ideal pour",
+      best: "Le meilleur",
+      note: "A prendre en compte",
+      profile: "Ambiance et profil",
+      directions: "Comment y aller",
+      bestBody: "Cette fiche met en valeur le caractere du lieu et les elements qui le rendent special dans l'annuaire.",
+      fallbackHighlights: ["Cadre naturel", "Experience locale", "Bonne candidate pour enrichir le guide"],
+      noteBody: "Comme pour beaucoup de criques et de plages de cet annuaire, il vaut mieux verifier l'acces reel, l'affluence selon la saison et s'il faut apporter de l'eau ou des chaussures adaptees avant de partir.",
+      noteList: [
+        "Verifier l'acces avant la visite",
+        "Consulter l'etat de la mer et la meteo",
+        "Tenir compte de la haute saison et de l'affluence"
+      ],
+      profileFallback: "Une plage pensee pour les visiteurs qui veulent plus de contexte avant de choisir ou aller.",
+      profileExperience: "Type d'experience",
+      profileReferences: "Reperes rapides",
+      pending: "a affiner",
+      directionsBody: "La fiche conserve une approche editoriale et prudente: elle ne suppose pas un itineraire exact si nous ne l'avons pas confirme, mais elle donne quand meme du contexte pour mieux preparer la visite.",
+      directionsBase: "Point de depart actuel",
+      directionsAccess: "Indication d'acces",
+      directionsNext: "Cela vaut la peine d'ajouter un itineraire precis dans une prochaine iteration",
+      locationFallback: "Emplacement a completer",
+      accessFallback: "Acces a confirmer",
+      vibeFallback: "Ambiance a confirmer",
+      idealFallbackPrefix: "Visiter",
+      idealFallbackSuffix: "avec une attente claire du type d'experience."
+    }
+  };
+
+  return dictionary[language] || dictionary.ca;
+}
+
 function galleryDataForPage() {
   const heroImage = extractBackgroundImage(".detail-aside");
   const beachName = textOf(".detail-copy h1");
   const slug = slugValue();
+  const texts = detailUiText();
 
   const fallbackSets = [
     [
@@ -42,10 +197,8 @@ function galleryDataForPage() {
 
   return images.map((image, index) => ({
     src: image,
-    title: index === 0 ? beachName : `Vista ${index + 1}`,
-    description: index === 0
-      ? `Imatge principal de ${beachName}.`
-      : `Vista complementaria per entendre millor l'entorn i el tipus de platja.`
+    title: index === 0 ? beachName : `${texts.viewLabel} ${index + 1}`,
+    description: index === 0 ? `${texts.mainImage} ${beachName}.` : texts.supportingImage
   }));
 }
 
@@ -81,16 +234,18 @@ function createSnapshot(label, value) {
 }
 
 function buildDetailInsights() {
-  const main = document.querySelector("body.detail-page main");
   const detailContent = document.querySelector(".detail-content");
-  if (!main || !detailContent) {
+  if (!document.querySelector("body.detail-page main") || !detailContent) {
     return;
   }
 
+  document.querySelector(".detail-insights")?.remove();
+
   const beachName = textOf(".detail-copy h1");
-  const location = listText(".detail-meta li")[0] || "Ubicacio per completar";
-  const access = listText(".detail-meta li")[1] || "Acces per confirmar";
-  const style = listText(".detail-meta li")[2] || "Ambient per confirmar";
+  const texts = detailUiText();
+  const location = listText(".detail-meta li")[0] || texts.locationFallback;
+  const access = listText(".detail-meta li")[1] || texts.accessFallback;
+  const vibe = listText(".detail-meta li")[2] || texts.vibeFallback;
   const highlights = listText(".detail-highlights li");
   const intro = textOf(".detail-intro");
   const idealFor = textOf(".detail-aside-card p:last-child");
@@ -100,42 +255,41 @@ function buildDetailInsights() {
 
   const snapshotGrid = document.createElement("div");
   snapshotGrid.className = "snapshot-grid";
-  snapshotGrid.appendChild(createSnapshot("Ubicacio", location));
-  snapshotGrid.appendChild(createSnapshot("Acces", access));
-  snapshotGrid.appendChild(createSnapshot("Ambient", style));
-  snapshotGrid.appendChild(createSnapshot("Ideal per", idealFor || `Visitar ${beachName} amb una expectativa clara del tipus d'experiencia.`));
+  snapshotGrid.appendChild(createSnapshot(texts.location, location));
+  snapshotGrid.appendChild(createSnapshot(texts.access, access));
+  snapshotGrid.appendChild(createSnapshot(texts.vibe, vibe));
+  snapshotGrid.appendChild(createSnapshot(
+    texts.idealFor,
+    idealFor || `${texts.idealFallbackPrefix} ${beachName} ${texts.idealFallbackSuffix}`
+  ));
 
   const insightsGrid = document.createElement("div");
   insightsGrid.className = "insights-grid";
   insightsGrid.appendChild(createCard(
-    "El millor",
-    `Aquesta fitxa posa en valor el caracter del lloc i els elements que la fan especial dins del directori.`,
-    highlights.length ? highlights : ["Entorn natural", "Experiencia local", "Bona candidata per ampliar la guia"]
+    texts.best,
+    texts.bestBody,
+    highlights.length ? highlights : texts.fallbackHighlights
   ));
   insightsGrid.appendChild(createCard(
-    "A tenir en compte",
-    `Com en moltes cales i platges d'aquest directori, abans de sortir convé revisar l'acces real, l'afluencia segons temporada i si cal portar aigua o calcat adequat.`,
+    texts.note,
+    texts.noteBody,
+    texts.noteList
+  ));
+  insightsGrid.appendChild(createCard(
+    texts.profile,
+    intro || texts.profileFallback,
     [
-      "Revisar l'acces abans de la visita",
-      "Comprovar estat del mar i del temps",
-      "Tenir en compte temporada alta i afluencia"
+      `${texts.profileExperience}: ${vibe || texts.vibeFallback}`,
+      `${texts.profileReferences}: ${highlights.slice(0, 3).join(", ") || texts.pending}`
     ]
   ));
   insightsGrid.appendChild(createCard(
-    "Ambient i perfil",
-    intro || `Una platja pensada per a usuaris que volen mes context abans de decidir on anar.`,
+    texts.directions,
+    texts.directionsBody,
     [
-      `Tipus d'experiencia: ${style || "Per confirmar"}`,
-      `Referencies rapides: ${highlights.slice(0, 3).join(", ") || "pendent d'afinar"}`
-    ]
-  ));
-  insightsGrid.appendChild(createCard(
-    "Com arribar-hi",
-    `La fitxa manté un enfocament editorial i prudent: no pressuposa una ruta exacta si no la tenim confirmada, pero si et dona context per preparar millor la visita.`,
-    [
-      `Punt base actual: ${location}`,
-      `Indicacio d'acces: ${access}`,
-      "Val la pena afegir una ruta precisa en una seguent iteracio"
+      `${texts.directionsBase}: ${location}`,
+      `${texts.directionsAccess}: ${access}`,
+      texts.directionsNext
     ]
   ));
 
@@ -150,7 +304,10 @@ function buildDetailGallery() {
     return;
   }
 
+  document.querySelector(".detail-gallery")?.remove();
+
   const images = galleryDataForPage();
+  const texts = detailUiText();
   if (images.length === 0) {
     return;
   }
@@ -160,7 +317,7 @@ function buildDetailGallery() {
   section.innerHTML = `
     <div class="gallery-stage">
       <div class="gallery-stage-info">
-        <p class="section-kicker">Galeria</p>
+        <p class="section-kicker">${texts.gallery}</p>
         <strong class="gallery-title"></strong>
         <p class="gallery-description"></p>
       </div>
@@ -200,3 +357,8 @@ function buildDetailGallery() {
 
 buildDetailGallery();
 buildDetailInsights();
+
+window.addEventListener("costa-brava-language-change", () => {
+  buildDetailGallery();
+  buildDetailInsights();
+});

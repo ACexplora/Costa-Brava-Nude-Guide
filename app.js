@@ -378,6 +378,21 @@ const map = L.map("map", { scrollWheelZoom: true }).setView([42.02, 3.08], 9);
 const markersLayer = L.layerGroup().addTo(map);
 const markersByBeach = new Map();
 
+function currentLanguage() {
+  return localStorage.getItem("costa-brava-language") || "ca";
+}
+
+function uiText() {
+  const language = currentLanguage();
+  const dictionary = {
+    ca: { cardLink: "Veure fitxa completa", results: "platges visibles" },
+    es: { cardLink: "Ver ficha completa", results: "playas visibles" },
+    en: { cardLink: "View full profile", results: "visible beaches" },
+    fr: { cardLink: "Voir la fiche complete", results: "plages visibles" }
+  };
+  return dictionary[language] || dictionary.ca;
+}
+
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   referrerPolicy: "strict-origin-when-cross-origin",
@@ -440,6 +455,7 @@ function updateMap(items) {
 
 function renderBeaches(items) {
   beachGrid.innerHTML = "";
+  const texts = uiText();
 
   items.forEach((beach) => {
     const node = template.content.cloneNode(true);
@@ -467,6 +483,7 @@ function renderBeaches(items) {
     card.querySelector(".beach-location").textContent = beach.town;
     card.querySelector(".beach-description").textContent = beach.description;
     cardLink.href = beach.href;
+    cardLink.textContent = texts.cardLink;
     titleLink.href = beach.href;
 
     const tagsContainer = card.querySelector(".card-tags");
@@ -479,7 +496,7 @@ function renderBeaches(items) {
     beachGrid.appendChild(node);
   });
 
-  resultsCount.textContent = `${items.length} platges visibles`;
+  resultsCount.textContent = `${items.length} ${texts.results}`;
   updateMap(items);
 }
 
@@ -513,3 +530,7 @@ function filterBeaches() {
 });
 
 filterBeaches();
+
+window.addEventListener("costa-brava-language-change", () => {
+  filterBeaches();
+});

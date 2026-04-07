@@ -1,5 +1,68 @@
 const SUPABASE_CDN_URL = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
 
+function commentsText() {
+  const language = localStorage.getItem("costa-brava-language") || "ca";
+  const dictionary = {
+    ca: {
+      kicker: "Comentaris",
+      titlePrefix: "Experiencies a",
+      intro: "Comparteix impressions sobre l'ambient, l'acces o consells de visita.",
+      publicMode: "Comentaris publics actius amb Supabase.",
+      localMode: "Mode local actiu: els comentaris es guarden nomes en aquest navegador fins que configuris Supabase.",
+      namePlaceholder: "El teu nom",
+      messagePlaceholder: "Escriu un comentari sobre aquesta platja",
+      submit: "Publicar comentari",
+      empty: "Encara no hi ha comentaris per aquesta platja.",
+      loadError: "No s'han pogut carregar els comentaris ara mateix.",
+      publishError: "No s'ha pogut publicar el comentari. Revisa la configuracio de Supabase."
+    },
+    es: {
+      kicker: "Comentarios",
+      titlePrefix: "Experiencias en",
+      intro: "Comparte impresiones sobre el ambiente, el acceso o consejos de visita.",
+      publicMode: "Comentarios publicos activos con Supabase.",
+      localMode: "Modo local activo: los comentarios se guardan solo en este navegador hasta que configures Supabase.",
+      namePlaceholder: "Tu nombre",
+      messagePlaceholder: "Escribe un comentario sobre esta playa",
+      submit: "Publicar comentario",
+      empty: "Todavia no hay comentarios para esta playa.",
+      loadError: "No se han podido cargar los comentarios ahora mismo.",
+      publishError: "No se ha podido publicar el comentario. Revisa la configuracion de Supabase."
+    },
+    en: {
+      kicker: "Comments",
+      titlePrefix: "Experiences at",
+      intro: "Share impressions about the vibe, the access or useful visiting tips.",
+      publicMode: "Public comments are active with Supabase.",
+      localMode: "Local mode is active: comments are stored only in this browser until you configure Supabase.",
+      namePlaceholder: "Your name",
+      messagePlaceholder: "Write a comment about this beach",
+      submit: "Post comment",
+      empty: "There are no comments for this beach yet.",
+      loadError: "Comments could not be loaded right now.",
+      publishError: "The comment could not be published. Check your Supabase configuration."
+    },
+    fr: {
+      kicker: "Commentaires",
+      titlePrefix: "Experiences a",
+      intro: "Partagez vos impressions sur l'ambiance, l'acces ou les conseils de visite.",
+      publicMode: "Les commentaires publics sont actifs avec Supabase.",
+      localMode: "Mode local actif: les commentaires sont stockes seulement dans ce navigateur tant que Supabase n'est pas configure.",
+      namePlaceholder: "Votre nom",
+      messagePlaceholder: "Ecrivez un commentaire sur cette plage",
+      submit: "Publier le commentaire",
+      empty: "Il n'y a pas encore de commentaires pour cette plage.",
+      loadError: "Les commentaires n'ont pas pu etre charges pour le moment.",
+      publishError: "Le commentaire n'a pas pu etre publie. Verifiez la configuration Supabase."
+    }
+  };
+  return dictionary[language] || dictionary.ca;
+}
+
+function currentLanguage() {
+  return localStorage.getItem("costa-brava-language") || "ca";
+}
+
 function getCommentStorageKey() {
   return `costa-brava-comments:${window.location.pathname}`;
 }
@@ -36,7 +99,13 @@ function writeLocalComments(comments) {
 
 function formatDate(dateString) {
   const date = new Date(dateString);
-  return new Intl.DateTimeFormat("ca-ES", {
+  const localeMap = {
+    ca: "ca-ES",
+    es: "es-ES",
+    en: "en-GB",
+    fr: "fr-FR"
+  };
+  return new Intl.DateTimeFormat(localeMap[currentLanguage()] || "ca-ES", {
     day: "2-digit",
     month: "short",
     year: "numeric",
@@ -166,22 +235,25 @@ async function createCommentsSection() {
     return;
   }
 
+  document.querySelector(".comments-section")?.remove();
+
   const store = await createCommentStore();
   const beachName = document.querySelector(".detail-copy h1")?.textContent?.trim() || "aquesta platja";
+  const texts = commentsText();
   const section = document.createElement("section");
   section.className = "comments-section";
   section.innerHTML = `
-    <p class="section-kicker">Comentaris</p>
-    <h2>Experiencies a ${escapeHtml(beachName)}</h2>
-    <p class="comments-intro">Comparteix impressions sobre l'ambient, l'acces o consells de visita.</p>
+    <p class="section-kicker">${texts.kicker}</p>
+    <h2>${texts.titlePrefix} ${escapeHtml(beachName)}</h2>
+    <p class="comments-intro">${texts.intro}</p>
     <div class="comment-note">${store.mode === "supabase"
-      ? "Comentaris publics actius amb Supabase."
-      : "Mode local actiu: els comentaris es guarden nomes en aquest navegador fins que configuris Supabase."}
+      ? texts.publicMode
+      : texts.localMode}
     </div>
     <form class="comment-form">
-      <input type="text" name="name" placeholder="El teu nom" required>
-      <textarea name="message" placeholder="Escriu un comentari sobre aquesta platja" required></textarea>
-      <button class="button primary" type="submit">Publicar comentari</button>
+      <input type="text" name="name" placeholder="${texts.namePlaceholder}" required>
+      <textarea name="message" placeholder="${texts.messagePlaceholder}" required></textarea>
+      <button class="button primary" type="submit">${texts.submit}</button>
     </form>
     <div class="comment-list"></div>
   `;
@@ -200,7 +272,7 @@ async function createCommentsSection() {
       if (comments.length === 0) {
         const empty = document.createElement("p");
         empty.className = "comments-empty";
-        empty.textContent = "Encara no hi ha comentaris per aquesta platja.";
+        empty.textContent = texts.empty;
         list.appendChild(empty);
         return;
       }
@@ -209,7 +281,7 @@ async function createCommentsSection() {
         list.appendChild(createCommentMarkup(comment));
       });
     } catch (error) {
-      note.textContent = "No s'han pogut carregar els comentaris ara mateix.";
+      note.textContent = texts.loadError;
     }
   }
 
@@ -234,7 +306,7 @@ async function createCommentsSection() {
       form.reset();
       await renderComments();
     } catch (error) {
-      note.textContent = "No s'ha pogut publicar el comentari. Revisa la configuracio de Supabase.";
+      note.textContent = texts.publishError;
     }
   });
 
@@ -242,3 +314,7 @@ async function createCommentsSection() {
 }
 
 createCommentsSection();
+
+window.addEventListener("costa-brava-language-change", () => {
+  createCommentsSection();
+});

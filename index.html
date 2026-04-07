@@ -21,7 +21,18 @@
       <a href="#qui-som">Qui som</a>
       <a href="#consells">Consells</a>
     </nav>
-    <a class="header-chip" href="#platges">Directori viu</a>
+    <div class="header-actions">
+      <label class="lang-switcher">
+        <span>Idioma</span>
+        <select id="languageSwitcher" aria-label="Language selector">
+          <option value="ca">CA</option>
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+        </select>
+      </label>
+      <a class="header-chip" href="#platges">Directori viu</a>
+    </div>
   </header>
 
   <main>
@@ -182,6 +193,7 @@
   </template>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="i18n.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -130,6 +130,33 @@ a {
   font-weight: 800;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(19, 38, 41, 0.08);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.lang-switcher select {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--accent-strong);
+  cursor: pointer;
+}
+
 .hero {
   display: block;
   width: min(1120px, calc(100% - 2rem));
@@ -837,6 +864,11 @@ h3 {
   .site-header {
     align-items: start;
     flex-direction: column;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
   }
 }
 
