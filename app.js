@@ -445,10 +445,11 @@ function renderBeaches(items) {
     const node = template.content.cloneNode(true);
     const card = node.querySelector(".beach-card");
     const cardLink = node.querySelector(".card-link");
+    const titleLink = node.querySelector(".beach-name-link");
 
     card.dataset.beachName = beach.name;
     card.addEventListener("click", (event) => {
-      if (event.target.closest(".card-link")) {
+      if (event.target.closest(".card-link") || event.target.closest(".beach-name-link")) {
         return;
       }
 
@@ -466,6 +467,7 @@ function renderBeaches(items) {
     card.querySelector(".beach-location").textContent = beach.town;
     card.querySelector(".beach-description").textContent = beach.description;
     cardLink.href = beach.href;
+    titleLink.href = beach.href;
 
     const tagsContainer = card.querySelector(".card-tags");
     beach.tags.forEach((tag) => {
