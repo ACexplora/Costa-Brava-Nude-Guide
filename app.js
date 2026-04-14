@@ -368,6 +368,12 @@ const featuredBeachNames = new Set([
   "Cala Boadella"
 ]);
 
+const heroCarouselNames = [
+  "Cala Estreta",
+  "Illa Roja",
+  "Cala Boadella"
+];
+
 const beachGrid = document.getElementById("beachGrid");
 const resultsCount = document.getElementById("resultsCount");
 const template = document.getElementById("beachCardTemplate");
@@ -386,12 +392,130 @@ function currentLanguage() {
 function uiText() {
   const language = currentLanguage();
   const dictionary = {
-    ca: { cardLink: "Veure fitxa completa", results: "platges visibles" },
-    es: { cardLink: "Ver ficha completa", results: "playas visibles" },
-    en: { cardLink: "View full profile", results: "visible beaches" },
-    fr: { cardLink: "Voir la fiche complete", results: "plages visibles" }
+    ca: {
+      cardLink: "Veure fitxa completa",
+      results: "platges visibles",
+      carouselKicker: "Seleccio visual",
+      previousSlide: "Imatge anterior",
+      nextSlide: "Imatge seguent"
+    },
+    es: {
+      cardLink: "Ver ficha completa",
+      results: "playas visibles",
+      carouselKicker: "Seleccion visual",
+      previousSlide: "Imagen anterior",
+      nextSlide: "Imagen siguiente"
+    },
+    en: {
+      cardLink: "View full profile",
+      results: "visible beaches",
+      carouselKicker: "Visual selection",
+      previousSlide: "Previous image",
+      nextSlide: "Next image"
+    },
+    fr: {
+      cardLink: "Voir la fiche complete",
+      results: "plages visibles",
+      carouselKicker: "Selection visuelle",
+      previousSlide: "Image precedente",
+      nextSlide: "Image suivante"
+    }
   };
   return dictionary[language] || dictionary.ca;
+}
+
+function initHeroCarousel() {
+  const track = document.getElementById("heroCarouselTrack");
+  const title = document.getElementById("heroCarouselTitle");
+  const location = document.getElementById("heroCarouselLocation");
+  const dotsContainer = document.getElementById("heroCarouselDots");
+  const prevButton = document.getElementById("heroCarouselPrev");
+  const nextButton = document.getElementById("heroCarouselNext");
+  const kicker = document.querySelector(".hero-carousel-kicker");
+
+  if (!track || !title || !location || !dotsContainer || !prevButton || !nextButton || !kicker) {
+    return;
+  }
+
+  const slides = heroCarouselNames
+    .map((name) => beaches.find((beach) => beach.name === name))
+    .filter(Boolean);
+
+  if (!slides.length) {
+    return;
+  }
+
+  const texts = uiText();
+  kicker.textContent = texts.carouselKicker;
+  prevButton.setAttribute("aria-label", texts.previousSlide);
+  nextButton.setAttribute("aria-label", texts.nextSlide);
+
+  track.innerHTML = "";
+  dotsContainer.innerHTML = "";
+
+  slides.forEach((beach, index) => {
+    const slide = document.createElement("article");
+    slide.className = "hero-carousel-slide";
+    slide.style.backgroundImage = `url("${beach.image}")`;
+    slide.setAttribute("aria-hidden", index === 0 ? "false" : "true");
+    track.appendChild(slide);
+
+    const dot = document.createElement("button");
+    dot.className = "hero-carousel-dot";
+    dot.type = "button";
+    dot.setAttribute("aria-label", beach.name);
+    dot.addEventListener("click", () => {
+      setSlide(index);
+      restartAutoplay();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsContainer.querySelectorAll(".hero-carousel-dot"));
+  let activeIndex = 0;
+  let autoplayId;
+
+  function setSlide(index) {
+    activeIndex = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${activeIndex * 100}%)`;
+    title.textContent = slides[activeIndex].name;
+    location.textContent = slides[activeIndex].town;
+
+    Array.from(track.children).forEach((slide, slideIndex) => {
+      slide.setAttribute("aria-hidden", slideIndex === activeIndex ? "false" : "true");
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-active", dotIndex === activeIndex);
+    });
+  }
+
+  function startAutoplay() {
+    window.clearInterval(autoplayId);
+    autoplayId = window.setInterval(() => {
+      setSlide(activeIndex + 1);
+    }, 5500);
+  }
+
+  function restartAutoplay() {
+    startAutoplay();
+  }
+
+  prevButton.onclick = () => {
+    setSlide(activeIndex - 1);
+    restartAutoplay();
+  };
+
+  nextButton.onclick = () => {
+    setSlide(activeIndex + 1);
+    restartAutoplay();
+  };
+
+  track.onmouseenter = () => window.clearInterval(autoplayId);
+  track.onmouseleave = () => startAutoplay();
+
+  setSlide(0);
+  restartAutoplay();
 }
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -543,7 +667,9 @@ if (pageQuery.has("type")) {
 }
 
 filterBeaches();
+initHeroCarousel();
 
 window.addEventListener("costa-brava-language-change", () => {
   filterBeaches();
+  initHeroCarousel();
 });
