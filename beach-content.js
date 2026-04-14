@@ -2896,6 +2896,210 @@ window.COSTA_BRAVA_BEACH_CONTENT = {
         }
       }
     },
+    "platja-gran-del-futaner": {
+      coordinates: [42.3882, 3.1643],
+      translations: {
+        ca: {
+          seo: {
+            title: "Platja Gran del Futaner | Llanca | Platja nudista de Cap Ras",
+            description: "Fitxa de la Platja Gran del Futaner, a Llanca: un raco discret de Cap Ras amb roca, poca sorra i molt aire de nord."
+          },
+          title: "Platja Gran del Futaner",
+          intro: "El Futaner es d'aquells racons que no entren per grans titulars, sino per la sensacio de descoberta. A Cap Ras, te aquest punt discret i una mica aspre que agrada molt a qui fuig de les platges massa evidents.",
+          meta: ["Llanca", "Acces a peu per Cap Ras", "Platja petita i poc frequentada"],
+          highlights: ["Cap Ras", "Discreta", "Nord salvatge"],
+          idealFor: "Qui busca una parada menys coneguda dins del tram entre Llanca i Colera, amb mes paisatge que serveis.",
+          sections: [
+            {
+              kicker: "La platja",
+              title: "Un raco petit dins de Cap Ras",
+              paragraphs: [
+                "La Platja Gran del Futaner no impressiona per dimensions, sino per context. Es un d'aquests punts de Cap Ras on la roca, la poca sorra i el relleu acaben fent una atmosfera molt particular.",
+                "Si t'agrada aquella Costa Brava del nord una mica mes seca, mes oberta i menys domesticada, aqui hi ha una molt bona mostra d'aquest caràcter."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Com entendre-la",
+              paragraphs: [
+                "Val la pena visitar-la com a part d'una ruta de racons de Cap Ras i no pas esperant una gran platja equipada. L'encant es justament la seva escala petita i la sensacio de certa discrecio.",
+                "Millor anar-hi amb calcat comod i amb la idea que el terreny forma part de l'experiencia."
+              ],
+              items: [
+                "Molt bona com a parada dins d'una ruta litoral.",
+                "Millor amb temps estable i mar relativament tranquil.",
+                "Perfecta per a qui valora mes el lloc que no pas el servei."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-s-alqueria-petita": {
+      mapUrl: "https://maps.app.goo.gl/rLQB48NrmiZXF6Gd8",
+      coordinates: [42.2972, 3.2883],
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala s'Alqueria Petita | Cadaques | Cala nudista petita",
+            description: "Fitxa de Cala s'Alqueria Petita, a Cadaques: una cala petita, coneguda i molt vinculada a l'ambient naturista del Cap de Creus."
+          },
+          title: "Cala s'Alqueria Petita",
+          intro: "s'Alqueria Petita comparteix sector i esperit amb s'Alqueria Gran, pero en format mes reduit. Es una cala petita, exposada al paisatge del cap i amb una tradicio naturista molt clara.",
+          meta: ["Cadaques", "Acces per la carretera del far", "Petita, ventada i de tradicio nudista"],
+          highlights: ["Cadaques", "Petita", "Tradicio nudista"],
+          idealFor: "Qui busca una cala de mida reduida, coneguda i amb una identitat molt clara dins del sector de Portlligat i el Cap de Creus.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Petita, directa i molt del sector",
+              paragraphs: [
+                "s'Alqueria Petita te una mida molt modesta, i justament per aixo es viu d'una manera molt immediata. No hi ha grans distancies ni gaire marge per perdre's: el lloc s'entén de seguida.",
+                "Forma part d'un tram de costa molt interessant, on la proximitat amb Portlligat, el far i altres cales del voltant li dona molt context."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Mida i condicions",
+              paragraphs: [
+                "Com que es una cala petita i bastant coneguda, a l'estiu pot sentir-se plena amb relativa facilitat. Si la vols una mica mes agradable, millor evitar les hores mes punyents.",
+                "El vent i l'onatge hi tenen pes, aixi que val la pena mirar condicions abans de decidir-te per aquesta o per una altra del mateix sector."
+              ],
+              items: [
+                "Uns 25 metres de longitud aproximada.",
+                "Base de bolos i grava fosca.",
+                "Molt bona per combinar amb s'Alqueria Gran i el cami cap al far."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-ferriol": {
+      mapUrl: "https://maps.app.goo.gl/zHxSxNcM7cS9Q4Mb7",
+      coordinates: [42.0822, 3.195],
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala Ferriol | L'Estartit | Cala gran i salvatge del Montgri",
+            description: "Fitxa de Cala Ferriol, a l'Estartit: una cala gran, rocosa i apartada del massis del Montgri."
+          },
+          title: "Cala Ferriol",
+          intro: "Ferriol es una cala amb sentit d'arribada. No es d'aquelles que apareixen sense voler: hi vas expressament, caminant o venint-hi per mar, i aixo ja li dona molt de pes.",
+          meta: ["L'Estartit", "1 h - 1 h 30 a peu", "Cala gran, rocosa i molt tranquila"],
+          highlights: ["Montgri", "Aillada", "Arribada a peu"],
+          idealFor: "Qui busca una cala de veritat, amb trajecte, silenci i sensacio de territori natural.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Una gran peça del Montgri",
+              paragraphs: [
+                "Ferriol te una dimensio mes generosa que altres cales del tram i una aparenca molt rocosa, molt de penya i molt de litoral dur. Aquest conjunt li dona una presencia poderosa.",
+                "Es una cala per a qui gaudeix de l'aillament i de la idea de fer cami abans del bany. No te l'aire domesticat d'un lloc facil."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Caminada i preparacio",
+              paragraphs: [
+                "Si hi vas a peu, assumeix la ruta com a part important de la jornada. Porta aigua, calcat adequat i marge de temps.",
+                "La recompensa es clara: una cala amb molta presència natural i menys sensacio de costa urbanitzada."
+              ],
+              items: [
+                "També molt bona si hi arribes per mar.",
+                "Molt indicada per a qui prioritza paisatge i tranquil.litat.",
+                "Millor no plantejar-la com una visita improvisada."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-pedrosa": {
+      mapUrl: "https://maps.app.goo.gl/RjHwiTvGrujPhFwN6",
+      coordinates: [42.0735, 3.2021],
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala Pedrosa | L'Estartit | Cala de codols i pins",
+            description: "Fitxa de Cala Pedrosa, a l'Estartit: una cala de codols, pins i roca molt adequada per combinar caminada, bany i snorkel."
+          },
+          title: "Cala Pedrosa",
+          intro: "Pedrosa te aquella combinacio tan agraida de cala de codols, pineda i arribada a peu que converteix la visita en una petita excursio ben rodona.",
+          meta: ["L'Estartit", "Uns 60 min a peu", "Cala natural i recollida"],
+          highlights: ["Codols", "Pins", "Snorkel"],
+          idealFor: "Qui vol una cala de format classic, amb cami agradable, entorn natural i una estona de bany amb calma.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Una cala petita i molt ben dibuixada",
+              paragraphs: [
+                "Pedrosa es una cala que entra molt be visualment: codols, roca, verd i una mica d'ombra segons l'hora. Tot hi queda bastant ben proporcionat i molt de paisatge mediterrani.",
+                "No necessita ser gran per funcionar. De fet, part de la seva gracia es precisament aquesta mida mes recollida."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Ruta i ritme",
+              paragraphs: [
+                "La caminada fins a la cala forma part del pla. Si hi vas amb temps i sense presses, la sortida queda molt completa.",
+                "Com que es una cala de codols i entorn natural, val la pena portar calcat comode i el minim material ben pensat."
+              ],
+              items: [
+                "Molt bona candidata per a snorkel senzill.",
+                "Millor per a qui busca cala que no pas platja oberta.",
+                "Combina molt be amb altres racons del massis del Montgri."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "la-gola-de-ter": {
+      mapUrl: "https://maps.app.goo.gl/zVne6mEvPCCK1RQk8",
+      coordinates: [42.0233, 3.1939],
+      translations: {
+        ca: {
+          seo: {
+            title: "La Gola de Ter | Torroella de Montgri | Desembocadura i dunes",
+            description: "Fitxa de la Gola de Ter, a Torroella de Montgri: un gran paisatge de desembocadura, dunes i sorra fina amb molt valor natural."
+          },
+          title: "La Gola de Ter",
+          intro: "La Gola de Ter no es una cala, sino un gran paisatge de frontera entre riu i mar. Aqui l'atractiu es l'espai, la llum, les dunes i la sensacio d'estar en un lloc ecologicament valuos.",
+          meta: ["Torroella de Montgri", "Acces per pista i camins naturals", "Desembocadura oberta i espai dunar"],
+          highlights: ["Desembocadura", "Dunes", "Valor natural"],
+          idealFor: "Qui prefereix espais oberts, caminar molta estona i sentir mes el paisatge que no pas l'efecte de cala recollida.",
+          sections: [
+            {
+              kicker: "La zona",
+              title: "Mes paisatge que cala",
+              paragraphs: [
+                "La Gola de Ter te una personalitat molt clara: el riu, la sorra, les dunes i l'horitzo obert. Es un lloc on el bany conviu amb una lectura molt de territori.",
+                "Aquesta amplitud fa que la visita sigui molt diferent de la d'una cala tradicional. Aqui tot convida mes a caminar, mirar i triar be el punt on aturar-se."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Com viure aquest tram",
+              paragraphs: [
+                "Val la pena arribar-hi amb mentalitat de paisatge natural i no esperar una platja urbana. Precisament el valor del lloc es que manté una aparença molt oberta i poc domesticada.",
+                "Vent, sol i estacionalitat hi tenen molt pes, aixi que la visita canvia bastant segons el dia i l'epoca."
+              ],
+              items: [
+                "Molt bona per a qui gaudeix caminant i observant l'entorn.",
+                "Ideal si combines bany amb passeig llarg.",
+                "Una peça molt valuosa per ampliar el directori cap a paisatges mes oberts."
+              ]
+            }
+          ]
+        }
+      }
+    },
     "platja-de-pals": {
       mapUrl: "https://maps.app.goo.gl/9TGtm9iYnJr9rQFz8",
       translations: {

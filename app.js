@@ -60,7 +60,7 @@ const beaches = [
     href: "platges/platja-del-tornet.html"
   },
   {
-    name: "Cala Murtra",
+    name: "Cala de la Murtra",
     town: "Roses",
     zone: "Alt Emporda",
     type: "senderisme",
@@ -72,7 +72,7 @@ const beaches = [
     href: "platges/cala-murtra.html"
   },
   {
-    name: "Cala Pi",
+    name: "Cala del Pi",
     town: "Portbou",
     zone: "Alt Emporda",
     type: "senderisme",
@@ -85,7 +85,7 @@ const beaches = [
   },
   {
     name: "Cala Borro",
-    town: "Cap Ras, entre Llanca i Colera",
+    town: "Colera",
     zone: "Alt Emporda",
     type: "salvatge",
     distance: "Consultar accés",
@@ -94,6 +94,18 @@ const beaches = [
     image: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80",
     coords: null,
     href: "platges/cala-borro.html"
+  },
+  {
+    name: "Platja Gran del Futaner",
+    town: "Llanca",
+    zone: "Alt Emporda",
+    type: "salvatge",
+    distance: "Acces a peu per Cap Ras",
+    description: "Petita platja de Cap Ras amb roca, sorra escassa i una sensacio de raco discret molt marcada.",
+    tags: ["Cap Ras", "Discreta", "Natural"],
+    image: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80",
+    coords: [42.3882, 3.1643],
+    href: "platges/platja-gran-del-futaner.html"
   },
   {
     name: "Cala Tamariua",
@@ -121,7 +133,7 @@ const beaches = [
   },
   {
     name: "Cala Fredosa",
-    town: "Cap de Creus, Cadaques",
+    town: "Cadaques",
     zone: "Alt Emporda",
     type: "senderisme",
     distance: "Consultar accés",
@@ -133,7 +145,7 @@ const beaches = [
   },
   {
     name: "Cala Jugadora",
-    town: "Cap de Creus, Cadaques",
+    town: "Cadaques",
     zone: "Alt Emporda",
     type: "salvatge",
     distance: "Consultar accés",
@@ -144,7 +156,7 @@ const beaches = [
     href: "platges/cala-jugadora.html"
   },
   {
-    name: "Cala de Sant Lluis",
+    name: "Platja de Sant Lluis",
     town: "Cadaques",
     zone: "Alt Emporda",
     type: "tranquil",
@@ -168,7 +180,19 @@ const beaches = [
     href: "platges/cala-s-alqueria-gran.html"
   },
   {
-    name: "Platja de Sa Conca",
+    name: "Cala s'Alqueria Petita",
+    town: "Cadaques",
+    zone: "Alt Emporda",
+    type: "tranquil",
+    distance: "Acces per la carretera del far",
+    description: "Cala petita i coneguda de la badia de Raco des Moro, amb tradicio nudista i un entorn molt de Cadaques.",
+    tags: ["Cadaques", "Tradicio nudista", "Petita"],
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    coords: [42.2972, 3.2883],
+    href: "platges/cala-s-alqueria-petita.html"
+  },
+  {
+    name: "Platja Sa Conca (roques)",
     town: "Cadaques",
     zone: "Alt Emporda",
     type: "accessible",
@@ -217,7 +241,7 @@ const beaches = [
   },
   {
     name: "Platja del Riuet",
-    town: "L'Escala",
+    town: "Sant Marti d'Empuries / L'Escala",
     zone: "Alt Emporda",
     type: "tranquil",
     distance: "Consultar accés",
@@ -226,6 +250,30 @@ const beaches = [
     image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
     coords: null,
     href: "platges/platja-del-riuet.html"
+  },
+  {
+    name: "Cala Ferriol",
+    town: "L'Estartit",
+    zone: "Baix Emporda",
+    type: "senderisme",
+    distance: "1 h - 1 h 30 a peu",
+    description: "Cala gran i rocosa del massis del Montgri, remota i molt atractiva per a una jornada de caminada i bany.",
+    tags: ["Montgri", "Aillada", "Rocosa"],
+    image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1200&q=80",
+    coords: [42.0822, 3.195],
+    href: "platges/cala-ferriol.html"
+  },
+  {
+    name: "Cala Pedrosa",
+    town: "L'Estartit",
+    zone: "Baix Emporda",
+    type: "senderisme",
+    distance: "Uns 60 min a peu",
+    description: "Petita cala de codols entre pins i roca, molt bona per a una excursio de mati o tarda amb bany tranquil.",
+    tags: ["Codols", "Snorkel", "Natural"],
+    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+    coords: [42.0735, 3.2021],
+    href: "platges/cala-pedrosa.html"
   },
   {
     name: "Platja de la Platera",
@@ -238,6 +286,18 @@ const beaches = [
     image: "https://images.unsplash.com/photo-1501959915551-4e8a04b6f9c1?auto=format&fit=crop&w=1200&q=80",
     coords: null,
     href: "platges/platja-de-la-platera.html"
+  },
+  {
+    name: "La Gola de Ter",
+    town: "Torroella de Montgri",
+    zone: "Baix Emporda",
+    type: "accessible",
+    distance: "Acces per pista i camins naturals",
+    description: "Gran paisatge de desembocadura, dunes i sorra fina per a qui prefereix espais oberts i molt valor ambiental.",
+    tags: ["Desembocadura", "Dunes", "Espai natural"],
+    image: "https://images.unsplash.com/photo-1501959915551-4e8a04b6f9c1?auto=format&fit=crop&w=1200&q=80",
+    coords: [42.0233, 3.1939],
+    href: "platges/la-gola-de-ter.html"
   },
   {
     name: "Platja de Pals",
