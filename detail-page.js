@@ -28,6 +28,9 @@ function detailUiText() {
       mainImage: "Imatge principal de",
       supportingImage: "Vista complementaria per entendre millor l'entorn i el tipus de platja.",
       location: "Ubicacio",
+      coordinates: "Coordenades",
+      map: "Mapa",
+      openMap: "Obrir mapa",
       access: "Acces",
       vibe: "Ambient",
       idealFor: "Ideal per",
@@ -63,6 +66,9 @@ function detailUiText() {
       mainImage: "Imagen principal de",
       supportingImage: "Vista complementaria para entender mejor el entorno y el tipo de playa.",
       location: "Ubicacion",
+      coordinates: "Coordenadas",
+      map: "Mapa",
+      openMap: "Abrir mapa",
       access: "Acceso",
       vibe: "Ambiente",
       idealFor: "Ideal para",
@@ -98,6 +104,9 @@ function detailUiText() {
       mainImage: "Main image of",
       supportingImage: "Supporting view to better understand the setting and the beach type.",
       location: "Location",
+      coordinates: "Coordinates",
+      map: "Map",
+      openMap: "Open map",
       access: "Access",
       vibe: "Vibe",
       idealFor: "Ideal for",
@@ -133,6 +142,9 @@ function detailUiText() {
       mainImage: "Image principale de",
       supportingImage: "Vue complementaire pour mieux comprendre l'environnement et le type de plage.",
       location: "Emplacement",
+      coordinates: "Coordonnees",
+      map: "Carte",
+      openMap: "Ouvrir la carte",
       access: "Acces",
       vibe: "Ambiance",
       idealFor: "Ideal pour",
@@ -189,6 +201,8 @@ function detailContentForPage() {
   return {
     image: entry.image,
     slug: entry.slug,
+    mapUrl: entry.mapUrl,
+    coordinates: entry.coordinates,
     ...mergeBeachTranslation(base, override)
   };
 }
@@ -224,6 +238,13 @@ function renderStructuredData(content) {
   const description = content.seo?.description || content.intro || "";
   const pageUrl = window.location.href;
   const collectionUrl = absoluteUrl("../index.html#platges");
+  const coordinates = Array.isArray(content.coordinates) && content.coordinates.length === 2
+    ? {
+        "@type": "GeoCoordinates",
+        latitude: content.coordinates[0],
+        longitude: content.coordinates[1]
+      }
+    : undefined;
 
   const touristAttraction = {
     "@context": "https://schema.org",
@@ -233,6 +254,8 @@ function renderStructuredData(content) {
     url: pageUrl,
     mainEntityOfPage: pageUrl,
     image: content.image,
+    hasMap: content.mapUrl || undefined,
+    geo: coordinates,
     publicAccess: true,
     isAccessibleForFree: true,
     touristType: vibe || undefined,
@@ -447,6 +470,21 @@ function createSnapshot(label, value) {
   return article;
 }
 
+function createLinkSnapshot(label, href, text) {
+  const article = document.createElement("article");
+  article.className = "snapshot-card";
+  const strong = document.createElement("strong");
+  strong.textContent = label;
+  const link = document.createElement("a");
+  link.href = href;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = text;
+  article.appendChild(strong);
+  article.appendChild(link);
+  return article;
+}
+
 function buildDetailInsights() {
   const detailContent = document.querySelector(".detail-content");
   if (!document.querySelector("body.detail-page main") || !detailContent) {
@@ -464,6 +502,7 @@ function buildDetailInsights() {
   const highlights = Array.from(document.querySelectorAll(".detail-highlights li")).map((item) => item.textContent.trim());
   const intro = textOf(".detail-intro");
   const idealFor = textOf(".detail-aside-card p:last-child");
+  const content = detailContentForPage();
 
   const section = document.createElement("section");
   section.className = "detail-insights";
@@ -471,6 +510,14 @@ function buildDetailInsights() {
   const snapshotGrid = document.createElement("div");
   snapshotGrid.className = "snapshot-grid";
   snapshotGrid.appendChild(createSnapshot(texts.location, location));
+  if (Array.isArray(content?.coordinates) && content.coordinates.length === 2) {
+    snapshotGrid.appendChild(
+      createSnapshot(texts.coordinates, `${content.coordinates[0]}, ${content.coordinates[1]}`)
+    );
+  }
+  if (content?.mapUrl) {
+    snapshotGrid.appendChild(createLinkSnapshot(texts.map, content.mapUrl, texts.openMap));
+  }
   snapshotGrid.appendChild(createSnapshot(texts.access, access));
   snapshotGrid.appendChild(createSnapshot(texts.vibe, vibe));
   snapshotGrid.appendChild(createSnapshot(

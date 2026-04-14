@@ -414,11 +414,11 @@ window.COSTA_BRAVA_BEACH_CONTENT = {
                                "translations":  {
                                                     "ca":  {
                                                                "seo":  {
-                                                                           "title":  "Cala de Sant Lluis | Costa Brava Nude Guide",
-                                                                           "description":  "Fitxa de Cala de Sant Lluis, Cadaques."
+                                                                           "title":  "Platja de Sant Lluis | Costa Brava Nude Guide",
+                                                                           "description":  "Fitxa de la Platja de Sant Lluis, Cadaques."
                                                                        },
                                                                "eyebrow":  "Alt Emporda",
-                                                               "title":  "Cala de Sant Lluis",
+                                                               "title":  "Platja de Sant Lluis",
                                                                "intro":  "Raco de Cadaques pensat per completar el bloc de fitxes del municipi amb una orientaciÃ³ clara i visual.",
                                                                "meta":  [
                                                                             "Cadaques",
@@ -1014,11 +1014,11 @@ window.COSTA_BRAVA_BEACH_CONTENT = {
                         "translations":  {
                                              "ca":  {
                                                         "seo":  {
-                                                                    "title":  "Cala Murtra | Costa Brava Nude Guide",
-                                                                    "description":  "Fitxa de Cala Murtra, una cala naturista molt coneguda al Cap de Creus."
+                                                                    "title":  "Cala de la Murtra | Costa Brava Nude Guide",
+                                                                    "description":  "Fitxa de Cala de la Murtra, una cala naturista molt coneguda al Cap de Creus."
                                                                 },
                                                         "eyebrow":  "Alt Emporda",
-                                                        "title":  "Cala Murtra",
+                                                        "title":  "Cala de la Murtra",
                                                         "intro":  "Una de les cales naturistes mÃ©s emblemÃ tiques del Cap de Creus, molt valorada per la sensaciÃ³ d\u0027aÃ¯llament i paisatge obert.",
                                                         "meta":  [
                                                                      "Roses",
@@ -1074,11 +1074,11 @@ window.COSTA_BRAVA_BEACH_CONTENT = {
                     "translations":  {
                                          "ca":  {
                                                     "seo":  {
-                                                                "title":  "Cala Pi | Costa Brava Nude Guide",
-                                                                "description":  "Fitxa de Cala Pi, Portbou."
+                                                                "title":  "Cala del Pi | Costa Brava Nude Guide",
+                                                                "description":  "Fitxa de Cala del Pi, Portbou."
                                                             },
                                                     "eyebrow":  "Alt Emporda",
-                                                    "title":  "Cala Pi",
+                                                    "title":  "Cala del Pi",
                                                     "intro":  "Cala de Portbou pensada per a qui busca un raco discret a l\u0027extrem nord de la Costa Brava.",
                                                     "meta":  [
                                                                  "Portbou",
@@ -1977,11 +1977,11 @@ window.COSTA_BRAVA_BEACH_CONTENT = {
                                "translations":  {
                                                     "ca":  {
                                                                "seo":  {
-                                                                           "title":  "Platja de Sa Conca | Costa Brava Nude Guide",
-                                                                           "description":  "Fitxa de la Platja de Sa Conca, Cadaques."
+                                                                           "title":  "Platja Sa Conca (roques) | Costa Brava Nude Guide",
+                                                                           "description":  "Fitxa de la Platja Sa Conca (roques), Cadaques."
                                                                        },
                                                                "eyebrow":  "Alt Emporda",
-                                                               "title":  "Platja de Sa Conca",
+                                                               "title":  "Platja Sa Conca (roques)",
                                                                "intro":  "Platja de Cadaques incorporada al directori com a opciÃ³ mÃ©s oberta dins del conjunt local.",
                                                                "meta":  [
                                                                             "Cadaques",
@@ -2327,4 +2327,696 @@ window.COSTA_BRAVA_BEACH_CONTENT = {
                                        }
                   }
 };
+
+(function applyEditorialOverrides() {
+  const content = window.COSTA_BRAVA_BEACH_CONTENT || {};
+
+  function mergeEntry(slug, override) {
+    const current = content[slug] || { slug, translations: {} };
+    content[slug] = {
+      ...current,
+      ...override,
+      translations: {
+        ...(current.translations || {}),
+        ...(override.translations || {})
+      }
+    };
+  }
+
+  const overrides = {
+    "cala-pi": {
+      mapUrl: "https://maps.app.goo.gl/3utduv9vQ3PEP63Q6",
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala del Pi | Portbou | Platja nudista de la Costa Brava",
+            description: "Guia de Cala del Pi, a Portbou: una cala petita i molt tranquila a tocar de la frontera, amb acces curt pero exigent."
+          },
+          title: "Cala del Pi",
+          intro: "Una cala petita, de codol i amb molt caracter, amagada a l'extrem nord de la Costa Brava. Es mes un raco per arribar-hi amb ganes de calma que no pas una platja comoda per improvisar.",
+          meta: ["Portbou", "Escales i baixada amb fort pendent", "Entorn rocós i molt tranquil"],
+          highlights: ["Petita", "Codols", "Coves marines"],
+          idealFor: "Qui busca una cala discreta, poc urbanitzada i amb sensacio real d'haver arribat gairebe al final del mapa.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Com es aquest raco",
+              paragraphs: [
+                "Malgrat el nom, no es una cala especialment plena de pins. El que hi trobes es una petita llengua de codols, encaixada en un tram de costa abrupte i ple de relleu.",
+                "L'entorn es molt potent: penya-segats, arrecifes i petites coves com la del Pirata. Es una cala que entra pels ulls tant pel paisatge com per la sensacio d'estar en un lloc apartat."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Acces i logistica",
+              paragraphs: [
+                "S'hi arriba des de Portbou, passant les Tres Platgetes. El cami te escales de pedra i un tram final amb molta pendent, aixi que convé anar-hi amb bon calcat i sense presses.",
+                "Abans d'arribar a la cala hi ha la font de Beu-i-Tapa, tot i que a l'estiu pot estar seca. No hi ha serveis ni vigilancia."
+              ],
+              items: [
+                "Un bon raco si t'agraden les cales petites i poc urbanes.",
+                "Millor portar aigua i mirar l'estat del mar abans de baixar-hi.",
+                "Paisatge molt atractiu per a qui gaudeix explorant coves i relleu costaner."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-borro": {
+      mapUrl: "https://maps.app.goo.gl/pHU6zw2osCyixfEh7",
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala Borró | Colera | Cala nudista a Cap Ras",
+            description: "Fitxa de Cala Borró, a Colera: dues cales naturistes a Cap Ras, de sorra daurada i entorn molt natural."
+          },
+          title: "Cala Borró",
+          intro: "Cala Borró es una de les referencies clares del nudisme al nord de la Costa Brava. A Cap Ras, entre Llanca i Colera, combina sorra, roca i un entorn que encara manté molta naturalitat.",
+          meta: ["Colera", "Acces a peu per Cap Ras", "Sorra daurada i tram ventat"],
+          highlights: ["Cap Ras", "Dues cales", "Naturista"],
+          idealFor: "Qui vol una cala nudista classica del nord, amb espai suficient i una atmosfera ben mediterrania.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Una cala partida en dos",
+              paragraphs: [
+                "Mes que una unica platja, Borró funciona com dues petites cales separades per roques que gairebe toquen el mar. Aquest detall li dona molta personalitat i permet trobar un raco una mica mes resguardat segons el moment.",
+                "La sorra es fina i daurada, pero el paisatge continua sent molt de cala i molt de Cap Ras: roca, natura i un aire molt obert."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Ambient i condicions",
+              paragraphs: [
+                "A l'estiu pot tenir moviment i no es una cala deserta, especialment per la fama que te dins la comunitat naturista. Tot i aixi, continua sent una molt bona opcio si vols un lloc clarament naturista i sense serveis superflus.",
+                "Si fa tramuntana o el dia surt ventat, l'experiencia canvia molt. Convé revisar el temps abans de baixar-hi."
+              ],
+              items: [
+                "Uns 125 metres de longitud aproximada.",
+                "Sense dutxes, socorrisme ni serveis fixos.",
+                "Molt bona per combinar amb altres cales de Cap Ras."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-tamariua": {
+      mapUrl: "https://maps.app.goo.gl/dLVSfMBr7JRMxWTB9",
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala Tamariua | El Port de la Selva | Cala naturista",
+            description: "Fitxa de Cala Tamariua, al Port de la Selva: una cala ampla, de grava i amb ambient naturista a tocar del poble."
+          },
+          intro: "Tamariua es una cala molt agradable per a qui vol un entorn natural sense allunyar-se gaire del poble. Te amplitud, bona aigua i una manera d'arribar-hi bastant amable.",
+          meta: ["El Port de la Selva", "A peu des del poble o pel carrer Mirador", "Semi urbana amb ambient naturista"],
+          highlights: ["Grava fosca", "Snorkel", "Port de la Selva"],
+          idealFor: "Qui busca una cala amb tradicio naturista, bona aigua i una escapada facil de combinar amb el poble.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Mes oberta del que sembla",
+              paragraphs: [
+                "Tamariua te una base de grava i arena, dues puntes rocoses laterals i un petit rec que a l'estiu acostuma a baixar sec. El conjunt es molt agradable, i dona una sensacio mes ampla que moltes altres cales del sector.",
+                "Els tamarius que li donen nom acaben d'arrodonir aquest caracter una mica mes suau i habitable. Es una cala que convida tant a banyar-se com a mirar sota l'aigua amb calma."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Com arribar i que esperar",
+              paragraphs: [
+                "Des del Port de la Selva hi pots arribar seguint la costa des del final del port o entrant pel carrer Mirador. No demana una gran excursio, i justament aqui hi ha part del seu atractiu.",
+                "A l'estiu hi pot haver guingueta i una mica de vida, pero sense perdre la sensacio de cala local. Si fa vent, val la pena mirar el dia abans."
+              ],
+              items: [
+                "Bona candidata per combinar bany tranquil i snorkel suau.",
+                "Sempre millor portar proteccio solar i aigua.",
+                "Ambient naturista habitual, tot i no ser una cala completament remota."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-taballera": {
+      mapUrl: "https://maps.app.goo.gl/4iomdZym3mKZSizh7",
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala Taballera | El Port de la Selva | Cala remota al Cap de Creus",
+            description: "Fitxa de Cala Taballera: una cala molt aillada del Cap de Creus, ideal per arribar-hi caminant o en barca."
+          },
+          intro: "Taballera es una d'aquelles cales que no es visiten per casualitat. Hi arribes expressament, sabent que el cami es llarg, i potser per aixo l'experiencia te tanta personalitat.",
+          meta: ["El Port de la Selva", "Mes de 2 hores pel GR-11", "Molt aillada i protegida"],
+          highlights: ["Cap de Creus", "GR-11", "Reserva integral"],
+          idealFor: "Qui valora mes el trajecte i la sensacio d'arribar lluny que no pas la comoditat immediata.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Una gran entrada de mar amagada",
+              paragraphs: [
+                "Taballera queda al fons d'una llarga entrada marina i, per aixo mateix, es sent molt protegida. No es la cala tipica de baixada curta: aqui l'arribada forma part del record.",
+                "Per aquesta condicio remota hi es habitual trobar-hi gent naturista i navegants. Es una de les peces mes singulars del Cap de Creus."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Ruta i mentalitat de visita",
+              paragraphs: [
+                "A peu, la referencia es el GR-11 seguint indicacions a Cala Taballera i Sant Baldiri. El cami es bonic, pero no curt: surt d'hora i pensa la sortida com una excursio completa.",
+                "L'altra manera natural d'entendre-la es arribar-hi per mar. En tots dos casos, convé anar-hi amb mentalitat de lloc remot i sense serveis."
+              ],
+              items: [
+                "Base de bolos i grava, amb uns 135 metres de longitud aproximada.",
+                "Molt bona opcio per a qui navega i busca una cala protegida.",
+                "No es una cala per improvisar si no portes aigua, menjar i temps."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-fredosa": {
+      mapUrl: "https://maps.app.goo.gl/n6rwBuoL1wMk3okr6",
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala Fredosa | Cadaques | Cala del Cap de Creus",
+            description: "Fitxa de Cala Fredosa, a Cadaques: un raco obert i mineral del Cap de Creus per a qui busca paisatge cru."
+          },
+          intro: "A Cala Fredosa no hi vas tant a buscar una cala amable com a entrar en un dels paisatges mes minerals del Cap de Creus. Es una experiència molt de territori, roca i horitzo obert.",
+          meta: ["Cadaques", "Acces a peu per l'entorn del Cap", "Paisatge obert i aspre"],
+          highlights: ["Cap de Creus", "Roca", "Paisatge mineral"],
+          idealFor: "Qui connecta amb la part mes crua i menys domesticada de la Costa Brava.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Mes geologia que postal",
+              paragraphs: [
+                "Fredosa te aquest punt de costa severa que fa tan especial el Cap de Creus. Aqui el protagonisme es per la roca, la llum i el relleu.",
+                "Precisament per aixo, atrau un tipus de visitant molt concret: gent que busca silenci, relleu i una sensacio de final de territori."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Acces i expectatives",
+              paragraphs: [
+                "Convé afrontar-la com un tram del Cap de Creus, no com una cala urbana amb comoditats. El premi aqui es l'entorn.",
+                "Si el dia surt ventat o amb mar mes moguda, el lloc canvia molt. Es una cala que demana mirar el temps i triar be el moment."
+              ],
+              items: [
+                "Molt bona per a qui gaudeix caminant i llegint el paisatge.",
+                "Poc indicada si busques comoditat o serveis.",
+                "Encara millor fora d'hores punta."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-jugadora": {
+      mapUrl: "https://maps.app.goo.gl/EVYfvdmXm8ftLfb2A",
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala Jugadora | Cadaques | Cala oberta al Cap de Creus",
+            description: "Fitxa de Cala Jugadora, a Cadaques: una cala oberta i ventada, molt marcada pel paisatge del far de Cap de Creus."
+          },
+          intro: "Jugadora es una cala molt de cap, de punta i de paisatge exposat. Te menys de raco recollit i mes d'espai obert, ventat i potent.",
+          meta: ["Cadaques", "A prop del far de Cap de Creus", "Ambient salvatge i exposat"],
+          highlights: ["Cap de Creus", "Vent", "Paisatge obert"],
+          idealFor: "Qui vol sentir l'energia mes oberta i ventada del Cap de Creus, per damunt del confort de la banyada.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Una cala molt del Cap",
+              paragraphs: [
+                "Mes que una cala classica, Jugadora es un tros de litoral molt definit pel paisatge del far i per la geografia del cap. La sensacio es la d'estar en un lloc exposat, on el vent i el relleu manen.",
+                "Aixo la fa especial: no es un espai domesticat ni pensat per tothom. Pero si t'agrada aquesta part mes radical de la Costa Brava, te molta personalitat."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Que esperar-hi",
+              paragraphs: [
+                "Val la pena entendre-la mes com una parada dins d'una ruta pel Cap de Creus que no pas com una cala per passar-hi tot el dia sense moure't.",
+                "Com passa sovint al Cap, el vent i l'estat del mar marquen totalment l'experiencia. Millor revisar condicions abans d'arribar-hi."
+              ],
+              items: [
+                "Bona candidata per combinar amb altres cales del mateix sector.",
+                "Mes atractiva per paisatge que no pas per comoditat.",
+                "Molt recomanable si gaudeixes de la costa mes exposada."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-de-sant-lluis": {
+      mapUrl: "https://maps.app.goo.gl/kR5enqX7Ztj4aniVA",
+      translations: {
+        ca: {
+          seo: {
+            title: "Platja de Sant Lluis | Cadaques | Cala tranquila del Cap de Creus",
+            description: "Fitxa de la Platja de Sant Lluis, a Cadaques: un raco tranquil dins l'entorn del Cap de Creus."
+          },
+          title: "Platja de Sant Lluis",
+          intro: "Sant Lluis funciona molt be per a qui vol una jornada tranquila prop de Cadaques, sense sortir del tot del paisatge i el ritme del Cap de Creus.",
+          meta: ["Cadaques", "Acces per la carretera del Cap", "Ambient tranquil"],
+          highlights: ["Cadaques", "Calma", "Raco natural"],
+          idealFor: "Qui busca una cala menys famosa que les grans classics, pero amb bona sensacio de lloc.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Una parada discreta i agradable",
+              paragraphs: [
+                "No es la cala mes coneguda del municipi, i precisament per aixo pot agradar molt. Te aquella mida i aquella discrecio que conviden a una estada mes pausada.",
+                "L'encant aqui no ve tant per una imatge iconica com per la suma de coses petites: la proximitat amb Cadaques, el paisatge del cap i una sensacio de jornada senzilla."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Com encaixa dins d'una ruta",
+              paragraphs: [
+                "Es una bona opcio si estàs voltant per la carretera que va cap al far i vols una parada menys exigent que altres cales mes apartades.",
+                "Si busques un raco extremadament salvatge, potser no sera la teva preferida. Si el que vols es una cala tranquil.la i ben situada, encaixa molt millor."
+              ],
+              items: [
+                "Ideal per combinar amb altres punts del mateix sector.",
+                "Ambient mes serè que espectacular.",
+                "Bona candidata per acabar de precisar acces i terreny."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-s-alqueria-gran": {
+      mapUrl: "https://maps.app.goo.gl/BMiMof1tQTHPXShv7",
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala s'Alqueria Gran | Cadaques | Cala nudista amb fons rocosos",
+            description: "Fitxa de Cala s'Alqueria Gran, a Cadaques: cala de tradicio nudista, amb aigua transparent i molt bon fons per mirar sota l'aigua."
+          },
+          intro: "s'Alqueria Gran combina molt be tradicio nudista, aigua clara i una bona proximitat amb Cadaques. Te personalitat propia sense necessitat de fer-se gaire la protagonista.",
+          meta: ["Cadaques", "Acces per la carretera del far", "Tradicio nudista i fons rocosos"],
+          highlights: ["Tradicio nudista", "Busseig lleuger", "Aigua transparent"],
+          idealFor: "Qui vol una cala amb bona aigua, bona llum i una experiencia naturista ja molt normalitzada.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Una badia amb molt joc",
+              paragraphs: [
+                "s'Alqueria Gran forma part de la badia del Raco des Moro i comparteix sector amb altres cales molt interessants. Te aquell punt de cala viscuda i coneguda de fa anys per la comunitat naturista.",
+                "La combinacio de roca, grava gruixuda i aigua transparent fa que sigui molt bona per passar-hi estona tant dins com fora de l'aigua."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Com arribar i que mirar",
+              paragraphs: [
+                "S'hi arriba per la carretera de Cadaques cap al far, passant Portlligat i entrant cap a la urbanitzacio de s'Alqueria. Es una aproximacio relativament simple si la compares amb altres cales del Cap.",
+                "Com que es una cala coneguda, a l'estiu pot tenir moviment. Si la vols amb una mica mes de marge, val la pena evitar les hores mes centrals."
+              ],
+              items: [
+                "Uns 58 metres de longitud aproximada, amb bolos i grava.",
+                "Molt bona per combinar bany i estona de snorkel.",
+                "Perfecta per encadenar amb altres cales del mateix tram."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platja-de-sa-conca": {
+      mapUrl: "https://maps.app.goo.gl/hawFHaAvEvpqCRZ69",
+      translations: {
+        ca: {
+          seo: {
+            title: "Platja Sa Conca (roques) | Cadaques | Platja nudista amb historia",
+            description: "Fitxa de la Platja Sa Conca, a Cadaques: una platja propera al poble, amb tradicio nudista i un rerefons cultural singular."
+          },
+          title: "Platja Sa Conca (roques)",
+          intro: "Sa Conca te una cosa que no totes les platges del directori poden dir: no nomes es un bon lloc per banyar-se, tambe te memoria, context i una certa vida cultural al darrere.",
+          meta: ["Cadaques", "S'hi pot arribar gairebe amb cotxe", "Platja oberta amb tradicio nudista"],
+          highlights: ["Tradicio nudista", "Propera al poble", "Context cultural"],
+          idealFor: "Qui vol una platja accessible dins de l'univers de Cadaques, sense renunciar a un lloc amb identitat.",
+          sections: [
+            {
+              kicker: "La platja",
+              title: "Mes que una simple parada de bany",
+              paragraphs: [
+                "Sa Conca es a poc mes d'un quilometre del centre de Cadaques, en direccio al far de Cala Nans. Aquest acces relativament facil la converteix en una de les opcions mes practiques del municipi.",
+                "Aquesta platja arrossega tradicio nudista i, a mes, forma part d'un entorn amb molta historia cultural. No es nomes un lloc on plantar la tovallola."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Que tenir present",
+              paragraphs: [
+                "La proximitat amb el poble fa que sigui una opcio molt comoda si vols combinar passeig, bany i una estona de cala sense complicar gaire la logistica.",
+                "Si busques una experiencia mes radicalment salvatge, no es aquesta. Si busques acces facil, tradicio i una mica d'historia al voltant, encaixa molt millor."
+              ],
+              items: [
+                "Uns 125 metres de longitud, amb base de bolos i roca.",
+                "Aigues habitualment tranquil.les.",
+                "Molt bona candidata per ampliar amb un apartat cultural."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-sa-sabolla": {
+      mapUrl: "https://maps.app.goo.gl/zGc6fU5z6modk8haA",
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala Sa Sabolla | Cala Nans | Cadaques",
+            description: "Fitxa de Cala Sa Sabolla, o Cala Nans, a Cadaques: una cala tranquila i apartada a la qual s'hi arriba caminant vora el mar."
+          },
+          intro: "Cala Sa Sabolla, coneguda tambe com Cala Nans, te molt d'aquest encant de sortida a peu que acaba en un bany tranquil. Es una cala petita i amb una manera d'arribar-hi que ja val la pena per si sola.",
+          meta: ["Cadaques", "1 hora caminant vora mar", "Cala aillada i tranquila"],
+          highlights: ["Far de Cala Nans", "Ruta a peu", "Costa verge"],
+          idealFor: "Qui vol una excursio costanera senzilla, bonica i amb premi final en forma de cala.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Una excursio que acaba en aigua",
+              paragraphs: [
+                "Aquesta cala mira al nord i conserva una aparenca gairebe verge. La base es de roca i bolos, i el conjunt te aquella sobrietat tan propia de la costa de Cadaques quan t'allunyes una mica del nucli.",
+                "El far de Cala Nans, construit al segle XIX, li dona molta presencia al lloc. Mes que una cala per trobar-la de passada, es una cala que demana caminar-hi expressament."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Ruta i ritme de visita",
+              paragraphs: [
+                "Des de Cadaques hi ha una caminada d'uns sis quilometres, apta per a molta gent, que segueix la costa i converteix l'arribada en una part molt agradable de la jornada.",
+                "Com que l'acces es a peu, convé portar aigua, proteccio solar i assumir que no hi trobaras serveis."
+              ],
+              items: [
+                "Coneguda tambe com Cala Nans pel far que la domina.",
+                "Bon entorn per a qui gaudeix mes de caminar que de plantar-se directament a la sorra.",
+                "Ideal amb llum de mati o tarda i poc vent."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "cala-murtra": {
+      mapUrl: "https://maps.app.goo.gl/jhWAUVkJxmzrUaz56",
+      coordinates: [42.276, 3.245],
+      translations: {
+        ca: {
+          seo: {
+            title: "Cala de la Murtra | Roses | Cala naturista del Cap de Creus",
+            description: "Fitxa de Cala de la Murtra, a Roses: una cala naturista de codol i pineda amb 15 minuts de caminada dins del Cap de Creus."
+          },
+          title: "Cala de la Murtra",
+          intro: "La Murtra te aquella combinacio que costa trobar: es clarament naturista, molt bonica i prou apartada per sentir que surts una mica del ritme de la costa urbana.",
+          meta: ["Roses", "15 minuts caminant des de la carretera", "Ambient naturista i cala protegida"],
+          highlights: ["Cap de Creus", "Aigua clara", "Pineda mediterrania"],
+          idealFor: "Qui vol una cala naturista amb personalitat, bona aigua i una aproximacio curta pero selectiva.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Una ferradura molt ben guardada",
+              paragraphs: [
+                "La Murtra es una cala de codols amb forma de ferradura, tancada per caps i envoltada de bosc mediterrani fins gairebe tocar l'aigua. Aquesta forma la fa sentir molt recollida.",
+                "Es de les cales naturistes mes conegudes del Cap de Creus, i ho es per bons motius: l'aigua sol ser molt neta i el conjunt te una bellesa molt clara, sense artifici."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Acces i mentalitat de visita",
+              paragraphs: [
+                "Des de Roses cal seguir la carretera cap a Montjoi fins trobar l'indicador del cami. Despres hi ha una caminada curta, d'uns quinze minuts, suficient per separar-te del cotxe.",
+                "No hi ha papereres ni serveis, aixi que val la pena portar el minim necessari i marxar-ne amb tot el que hi has dut."
+              ],
+              items: [
+                "Uns 130 metres aproximats de longitud, amb bolos i una mica d'arena daurada.",
+                "Bon lloc per a qui gaudeix observant el fons marí.",
+                "Molt recomanable revisar vent i estat de mar abans de baixar-hi."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platja-de-can-comes": {
+      mapUrl: "https://maps.app.goo.gl/PVFibi1RQi9FxBGU9",
+      translations: {
+        ca: {
+          seo: {
+            title: "Platja de Can Comes | Castello d'Empuries | Gran platja naturista",
+            description: "Fitxa de la Platja de Can Comes: un llarg arenal protegit als Aiguamolls de l'Emporda, ideal per a qui prefereix dunes i espais oberts."
+          },
+          intro: "Can Comes canvia completament el registre de les cales del directori. Aqui no hi ha una entrada recollida entre roques, sino molt horitzo, dunes i sensacio d'espai llarg i natural.",
+          meta: ["Castello d'Empuries", "Acces condicionat segons temporada", "Platja protegida i molt oberta"],
+          highlights: ["Aiguamolls", "Dunes", "Espai protegit"],
+          idealFor: "Qui prefereix caminar per un gran arenal i trobar un raco propi sense la logica de cala tancada.",
+          sections: [
+            {
+              kicker: "La platja",
+              title: "Un altre tipus de Costa Brava",
+              paragraphs: [
+                "Can Comes es una llarguissima platja de sorra fina i daurada, inserida en el sistema de dunes i llacunes dels Aiguamolls de l'Emporda. Es un paisatge molt diferent de la Costa Brava de penya-segat.",
+                "La sensacio aqui es d'espai, d'aire i de natura oberta. Si t'agraden les platges llargues on pots caminar una bona estona abans de parar, es una de les opcions mes interessants del nord."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Reserva natural i acces",
+              paragraphs: [
+                "Cal tenir molt present que l'acces pot estar limitat en certes epoques de l'any per la nidificacio d'aus. No es una simple molestia logistica: forma part del valor mateix del lloc.",
+                "Si hi vas en periode obert, ves-hi amb mentalitat de platja protegida i sense esperar serveis abundants."
+              ],
+              items: [
+                "Uns 3,7 km de longitud i molt marge per trobar espai.",
+                "Vent i onatge poden marcar molt l'experiencia.",
+                "Ideal per a qui valora mes el paisatge natural que no pas les comoditats."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platja-del-cortal-de-la-vila": {
+      mapUrl: "https://maps.app.goo.gl/ppWMh5dgrzxPyeG49",
+      translations: {
+        ca: {
+          seo: {
+            title: "Platja del Cortal de la Vila | Sant Pere Pescador",
+            description: "Fitxa de la Platja del Cortal de la Vila, a Sant Pere Pescador: un gran arenal amb diferents ambients dins la badia de Roses."
+          },
+          intro: "Si hi ha qui pensa que a Girona tot son cales, Sant Pere Pescador serveix per desfer el mite. Aqui la costa s'obre en llarg i t'obliga a pensar la visita d'una altra manera.",
+          meta: ["Sant Pere Pescador", "Parking gran i acces senzill", "Platja llarga amb diferents ambients"],
+          highlights: ["Badia de Roses", "Llarga", "Diversitat d'ambients"],
+          idealFor: "Qui vol espai, caminada per la sorra i marge per trobar el tram que li encaixi millor.",
+          sections: [
+            {
+              kicker: "La platja",
+              title: "Mes de sis quilometres de marge",
+              paragraphs: [
+                "Aquest tram forma part del gran arenal de Sant Pere Pescador, el mes llarg de la badia de Roses. Aqui el paisatge no te res de recollit: es una platja oberta, ventada i molt extensa.",
+                "La practica nudista hi te presencia real, encara que no sempre estigui senyalitzada de manera explicita. Aquesta amplitud fa que cadascu pugui trobar millor el seu ritme i el seu espai."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Com moure't pel tram",
+              paragraphs: [
+                "Des del poble hi ha un aparcament gran i facil. A partir d'aqui, el mes important es entendre que la platja funciona per sectors: si no t'encaixa el primer punt on arribes, sovint val la pena caminar una mica.",
+                "Vent, onatge i temporada condicionen molt l'experiencia. Es una platja ideal si t'agrada moure't i escollir el teu lloc amb calma."
+              ],
+              items: [
+                "Mes de 6 km de longitud i sensacio real d'amplitud.",
+                "Ambients diversos, des de zones mes familiars fins a trams mes tranquils.",
+                "Bona opcio si prefereixes grans arenals a les cales petites."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platja-del-riuet": {
+      mapUrl: "https://maps.app.goo.gl/g6DHaxdrhNpLNw1j8",
+      translations: {
+        ca: {
+          seo: {
+            title: "Platja del Riuet | Sant Marti d'Empuries | L'Escala",
+            description: "Fitxa de la Platja del Riuet, entre Sant Marti d'Empuries i Sant Pere Pescador: sorra fina, desembocadura i una part nord mes natural."
+          },
+          intro: "El Riuet te una barreja molt interessant de platja accessible i tram natural. Es una bona opcio si vols sorra fina, una arribada facil i una part nord amb mes aire de llibertat.",
+          meta: ["Sant Marti d'Empuries / L'Escala", "Acces facil per escales i cami", "Platja oberta amb sector mes natural"],
+          highlights: ["Sorra fina", "Desembocadura", "Natural al nord"],
+          idealFor: "Qui vol una platja amable per passar-hi estona, pero amb marge per buscar una part menys urbana.",
+          sections: [
+            {
+              kicker: "La platja",
+              title: "Dues platges en una",
+              paragraphs: [
+                "El Riuet te dos ambits bastant diferents. La part mes propera a Sant Marti te una entrada molt clara i una sensacio de platja facil; la part nord, en canvi, guanya naturalitat cap a la desembocadura.",
+                "Aixo fa que sigui una platja molt versatil: hi pots anar amb una idea mes familiar o be buscar una mica mes de marge i d'aire si avances cap al tram mes natural."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Entorn i visita",
+              paragraphs: [
+                "Es una bona opcio si vols combinar bany amb passeig per un entorn historic i singular, a tocar d'Empuries. La proximitat amb les ruines i amb Sant Marti li dona una capa cultural afegida.",
+                "Tot i que no es una platja completament salvatge, si que ofereix un tram mes lliure cap al nord. Per a molta gent, aquest equilibri es justament la seva gracia."
+              ],
+              items: [
+                "Uns 300 metres de longitud, amb base de sorra fina.",
+                "Molt bona per a qui valora l'acces facil.",
+                "El vent pot fer variar molt l'ambient segons el dia."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platja-de-pals": {
+      mapUrl: "https://maps.app.goo.gl/9TGtm9iYnJr9rQFz8",
+      translations: {
+        ca: {
+          seo: {
+            title: "Platja de Pals | Pals | Gran platja nudista de la Costa Brava",
+            description: "Fitxa de la Platja de Pals: una gran platja de dunes, molt oberta i amb tradicio naturista al tram de la Platja Gran."
+          },
+          intro: "Pals es un dels grans classics quan penses en platges llargues de la Costa Brava. Te espai, dunes, vistes a les Medes i prou amplitud per viure-la de maneres molt diferents segons el tram.",
+          meta: ["Pals", "Acces facil i ampli", "Platja gran amb tradicio naturista"],
+          highlights: ["Dunes", "Illes Medes", "Espai obert"],
+          idealFor: "Qui busca una gran platja on el paisatge, l'espai i la llibertat de moviment siguin tan importants com el bany.",
+          sections: [
+            {
+              kicker: "La platja",
+              title: "Una gran platja per respirar",
+              paragraphs: [
+                "A Pals tot es mes ample: la sorra, l'horitzo i la distancia entre una tovallola i l'altra quan trobes el teu lloc. El tram de Platja Gran es el que mes s'associa a la tradicio naturista.",
+                "El fet de formar part del parc natural del Montgri, les Illes Medes i el Baix Ter reforca molt la sensacio de lloc valuos."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Com aprofitar-la millor",
+              paragraphs: [
+                "Si hi penses passar estona, val la pena entendre que es una platja llarga i amb sectors diferents. Pots arribar-hi de manera molt comoda, pero un cop a la sorra sovint compensa caminar una mica.",
+                "La presencia de dunes, les vistes a les Medes i l'amplada general del tram fan que sigui una platja molt bona per a dies sencers."
+              ],
+              items: [
+                "Uns 3,5 km de longitud i força amplada util.",
+                "Aigues ben valorades i bon paisatge de fons.",
+                "Molt bona opcio si combines natura, caminada i bany."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "platja-de-la-platera": {
+      mapUrl: "https://maps.app.goo.gl/bAoRPThdUgKGh4NP8",
+      translations: {
+        ca: {
+          seo: {
+            title: "Platja de la Platera | L'Estartit | Gran platja oberta",
+            description: "Fitxa de la Platja de la Platera, a l'Estartit: un tram llarg, obert i de sorra, molt adequat per a qui prefereix horitzo i amplitud."
+          },
+          intro: "La Platera es una platja de registre obert, molt diferent de les cales tancades. Aqui el protagonisme es per la sorra, el cel i la sensacio de costa llarga.",
+          meta: ["L'Estartit / Torroella de Montgri", "Acces senzill segons el tram", "Platja oberta i molt ampla"],
+          highlights: ["Platja llarga", "Sorra", "Espai obert"],
+          idealFor: "Qui prefereix caminar, tenir marge i viure la Costa Brava en clau de gran arenal.",
+          sections: [
+            {
+              kicker: "La platja",
+              title: "Una altra manera d'entendre la costa",
+              paragraphs: [
+                "La Platera ajuda a recordar que la Costa Brava no es nomes un cataleg de cales. Aqui tot s'obre: l'horitzo, la sorra i la manera de moure't per la platja.",
+                "Es una molt bona opcio si el que vols es amplitud, marge i un lloc on la visita no depengui tant d'una entrada concreta entre roques."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Com aprofitar-ne el millor",
+              paragraphs: [
+                "Com passa amb altres grans platges d'aquest tram, sovint val la pena caminar una mica i no quedar-se exactament al primer punt d'arribada.",
+                "Si el dia es ventat, l'ambient canvia molt. Amb bon temps, en canvi, es una platja molt agradable per quedar-s'hi estona."
+              ],
+              items: [
+                "Molt bona si combines passeig i bany.",
+                "Mes comoda per a qui no busca una cala encaixada.",
+                "Bon complement a altres platges llargues del Baix Emporda."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "illa-roja": {
+      mapUrl: "https://maps.app.goo.gl/SukpzRdXwbNN3ANo8",
+      coordinates: [41.967, 3.226],
+      translations: {
+        ca: {
+          seo: {
+            title: "Platja de l'Illa Roja i Cala Moreta | Begur | Cala nudista iconica",
+            description: "Fitxa de l'Illa Roja, a Begur: una de les platges nudistes mes emblematiques de la Costa Brava, presidida per la gran roca rogenca."
+          },
+          title: "Platja de l'Illa Roja i Cala Moreta",
+          intro: "Illa Roja es una icona. Hi ha platges bones, platges boniques i, despres, llocs que ja formen part de l'imaginari nudista de tota la costa.",
+          meta: ["Begur", "Acces a peu per cami de ronda i escales", "Tradicio nudista molt consolidada"],
+          highlights: ["Roca rogenca", "Classic nudista", "Paisatge recognoscible"],
+          idealFor: "Qui vol visitar una de les grans classics del naturisme a la Costa Brava i entendre per que ha esdevingut tan coneguda.",
+          sections: [
+            {
+              kicker: "La cala",
+              title: "Per que s'ha fet tan famosa",
+              paragraphs: [
+                "El nom li ve de la gran roca rogenca que domina el tram i que fa que la reconeguis de seguida. Aquesta presencia visual, sumada a la sorra daurada i a l'abric del pinar, li dona una identitat molt forta.",
+                "Fa anys que es una de les platges de tradicio nudista mes conegudes de la Costa Brava, i aquest caracter continua molt viu."
+              ],
+              items: []
+            },
+            {
+              kicker: "Abans d'anar-hi",
+              title: "Ambient i visita",
+              paragraphs: [
+                "No es una cala secreta ni pretén ser-ho. Part de la seva gracia es justament aquesta barreja entre lloc molt conegut i entorn natural encara potent.",
+                "Val la pena arribar-hi amb temps i assumir que els accessos a peu formen part de l'experiencia. Un cop a baix, el conjunt visual fa la resta."
+              ],
+              items: [
+                "Uns 174 metres de longitud aproximada.",
+                "Tradicio nudista molt arrelada i facil de percebre.",
+                "Ideal per a una primera visita si vols un lloc emblematic."
+              ]
+            }
+          ]
+        }
+      }
+    }
+  };
+
+  Object.entries(overrides).forEach(([slug, override]) => mergeEntry(slug, override));
+})();
 
