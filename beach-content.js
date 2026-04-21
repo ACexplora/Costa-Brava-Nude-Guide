@@ -3224,3 +3224,430 @@ window.COSTA_BRAVA_BEACH_CONTENT = {
   Object.entries(overrides).forEach(([slug, override]) => mergeEntry(slug, override));
 })();
 
+(function applyMoreEditorialOverrides() {
+  const content = window.COSTA_BRAVA_BEACH_CONTENT || {};
+
+  function mergeEntry(slug, override) {
+    const existing = content[slug] || { slug, translations: {} };
+    const mergedTranslations = { ...(existing.translations || {}) };
+
+    if (override.translations) {
+      Object.entries(override.translations).forEach(([lang, value]) => {
+        mergedTranslations[lang] = {
+          ...(mergedTranslations[lang] || {}),
+          ...value
+        };
+      });
+    }
+
+    content[slug] = {
+      ...existing,
+      ...override,
+      translations: mergedTranslations
+    };
+  }
+
+  function simpleOverride(config) {
+    return {
+      mapUrl: config.mapUrl,
+      coordinates: config.coordinates,
+      translations: {
+        ca: {
+          seo: {
+            title: config.seoTitle,
+            description: config.seoDescription
+          },
+          title: config.title,
+          intro: config.intro,
+          meta: config.meta,
+          highlights: config.highlights,
+          idealFor: config.idealFor,
+          sections: [
+            {
+              kicker: "La cala",
+              title: config.sectionTitle,
+              paragraphs: config.paragraphs,
+              items: config.items || []
+            }
+          ]
+        }
+      }
+    };
+  }
+
+  const overrides = {
+    "cala-s-eixugador": simpleOverride({
+      title: "Cala s'Eixugador",
+      seoTitle: "Cala s'Eixugador | Begur | Raco discret del cami de ronda",
+      seoDescription: "Fitxa de Cala s'Eixugador, a Begur: un raco estret i molt mediterrani entre roca, pinar i aigua clara.",
+      mapUrl: "https://maps.app.goo.gl/nysFtTQk3tAC3sNG6",
+      coordinates: [41.9415, 3.2225],
+      intro: "s'Eixugador te aquest aire de raco fi i ben dibuixat que tant funciona a Begur: roca, pinar i una sensacio d'estar una mica apartat sense desaparèixer del tot.",
+      meta: ["Begur", "Acces per cami de ronda", "Cala petita i rocosa"],
+      highlights: ["Begur", "Pinar", "Cami de ronda"],
+      idealFor: "Qui vol una cala petita, bonica i discreta per combinar amb una caminada de costa.",
+      sectionTitle: "Un raco molt de Begur",
+      paragraphs: [
+        "No es una cala per fer-la corrents. El que millor li escau es arribar-hi caminant, mirar el relleu i acabar triant el teu tros de roca o sorra amb calma.",
+        "La visita funciona especialment be si la penses com una parada dins d'un tram de cami de ronda mes ampli."
+      ],
+      items: ["Molt apropiada per a una escapada curta.", "Millor amb calcat comod si combines mes d'una cala."]
+    }),
+    "platja-fonda": simpleOverride({
+      title: "Platja Fonda",
+      seoTitle: "Platja Fonda | Begur | Cala fonda i ombria",
+      seoDescription: "Fitxa de Platja Fonda, a Begur: una platja molt fotogenica amb escales d'acces i una zona nord on el nudisme es viu amb naturalitat.",
+      mapUrl: "https://maps.app.goo.gl/vcgc6yKTaBcnMEsU6",
+      coordinates: [41.9427, 3.2145],
+      intro: "Platja Fonda impressiona abans de tocar l'aigua. La baixada, l'ombra i l'encaix entre roca li donen una personalitat molt marcada.",
+      meta: ["Begur", "Acces per escales", "Mixta al tram nord"],
+      highlights: ["Escales", "Ombra", "Tram nord naturista"],
+      idealFor: "Qui busca una cala visualment potent i no li fa res que l'arribada tingui un punt d'esforc.",
+      sectionTitle: "Escala i caràcter",
+      paragraphs: [
+        "El nudisme acostuma a concentrar-se cap al costat nord, que es el tram que sol sentir-se mes allunyat de l'entrada principal.",
+        "Si hi vas fora de les hores centrals, guanya molt en atmosfera i en aquesta sensacio de cala fonda i recollida que li dona nom."
+      ],
+      items: ["Cal comptar amb la pujada de tornada.", "Molt bona per a qui valora paisatge abans que comoditat."]
+    }),
+    "aigua-xelida": simpleOverride({
+      title: "Aigua Xelida",
+      seoTitle: "Aigua Xelida | Palafrugell | Roques i aigua transparent",
+      seoDescription: "Fitxa d'Aigua Xelida, a Palafrugell: plataformes de roca, mar molt clar i un ambient on el nudisme es practica sobretot als trams mes apartats.",
+      mapUrl: "https://maps.app.goo.gl/Kpn7h8s9uXEcntMt6",
+      coordinates: [41.9118, 3.1946],
+      intro: "Aigua Xelida no s'entén com una platja clàssica, sino com un conjunt de roca, bany i transparència. Justament aquí hi ha part del seu encant.",
+      meta: ["Palafrugell", "Zona de roques", "Aigua molt clara"],
+      highlights: ["Roca", "Snorkel", "Transparencia"],
+      idealFor: "Qui gaudeix més de les roques i del bany tranquil que no pas d'estendre una tovallola en un gran arenal.",
+      sectionTitle: "Mes roca que platja",
+      paragraphs: [
+        "El nudisme hi apareix sobretot als punts on la roca et permet trobar una mica de recolliment i mirar el mar sense gaire més distracció.",
+        "Es un lloc molt bo per quedar-s'hi estona curta, entrar i sortir de l'aigua i mirar el fons amb ulleres."
+      ],
+      items: ["Millor portar calcat de roca.", "Ideal per combinar amb altres racons de Palafrugell."]
+    }),
+    "cala-predrosa": simpleOverride({
+      title: "Cala Predrosa",
+      seoTitle: "Cala Predrosa | Palafrugell | Cala petita de codols",
+      seoDescription: "Fitxa de Cala Predrosa, a Palafrugell: una cala recollida, de codols i roca, bona per a una visita pausada.",
+      mapUrl: "https://maps.app.goo.gl/TMWB5Y3uJZ3qgaRi7",
+      coordinates: [41.9102, 3.1921],
+      intro: "Predrosa és una cala petita i continguda, d'aquelles que funcionen millor quan hi arribes sense presses i amb ganes de quedar-t'hi en calma.",
+      meta: ["Palafrugell", "Codols", "Acces a peu"],
+      highlights: ["Recollida", "Natural", "Pausada"],
+      idealFor: "Qui busca una cala menuda i més íntima dins del mosaic de cales del municipi.",
+      sectionTitle: "Una visita curta i bona",
+      paragraphs: [
+        "No cal gaire per gaudir-la: una bona arribada, una estona de sol i la sensació de trobar un lloc que no crida sinó que acompanya.",
+        "Precisament la seva escala petita és el que la fa agradable per a qui vol fugir d'una platja més evident."
+      ]
+    }),
+    "cala-del-cau": simpleOverride({
+      title: "Cala del Cau",
+      seoTitle: "Cala del Cau | Palafrugell | Raco discret entre roca",
+      seoDescription: "Fitxa de Cala del Cau, a Palafrugell: un raco discret i petit entre roca i mar, bo per a qui busca tranquil.litat.",
+      mapUrl: "https://maps.app.goo.gl/qsXUoxNga3RTjNuCA",
+      coordinates: [41.8998, 3.1845],
+      intro: "El Cau és una cala de mida curta i de gest petit. No necessita gaire escenografia perquè la seva gràcia és justament ser discreta.",
+      meta: ["Palafrugell", "Roca", "Acces a peu"],
+      highlights: ["Discreta", "Petita", "Rocosa"],
+      idealFor: "Qui valora més la quietud i el recolliment que no pas la comoditat d'una platja gran.",
+      sectionTitle: "Discreta de debò",
+      paragraphs: [
+        "És de les cales que conviden a fer una visita sense soroll, gairebé de passada però quedant-t'hi prou estona per sentir el lloc.",
+        "Si t'agraden els racons petits on el paisatge pesa més que els serveis, encaixa molt bé."
+      ]
+    }),
+    "cala-d-en-massoni": simpleOverride({
+      title: "Cala d'en Massoni",
+      seoTitle: "Cala d'en Massoni | Palafrugell | Cala del sector de Cap Roig",
+      seoDescription: "Fitxa de Cala d'en Massoni, a Palafrugell: una cala de roca i caràcter, molt vinculada al paisatge de Cap Roig.",
+      mapUrl: "https://maps.app.goo.gl/JET3Mcdq5WPJfsaX6",
+      coordinates: [41.8959, 3.1825],
+      intro: "Cala d'en Massoni te un punt molt clar de paisatge de Cap Roig: roca, pendent i una manera d'arribar-hi que ja posa el to de la visita.",
+      meta: ["Palafrugell", "Cap Roig", "Acces a peu"],
+      highlights: ["Cap Roig", "Roca", "Caràcter"],
+      idealFor: "Qui busca un tram de costa amb personalitat i no una platja fàcil o domesticada.",
+      sectionTitle: "Un tram amb identitat",
+      paragraphs: [
+        "La sensació aquí és més de racó de costa que no pas de gran lloc de bany. I això, per a molta gent, és exactament el que la fa atractiva.",
+        "Millor pensar-la com una parada dins d'un itinerari més ampli que no pas com una jornada de platja clàssica."
+      ]
+    })
+  };
+
+  Object.entries(overrides).forEach(([slug, override]) => mergeEntry(slug, override));
+})();
+
+(function applyFinalSpringOverrides() {
+  const content = window.COSTA_BRAVA_BEACH_CONTENT || {};
+
+  function mergeEntry(slug, override) {
+    const existing = content[slug] || { slug, translations: {} };
+    const mergedTranslations = { ...(existing.translations || {}) };
+
+    if (override.translations) {
+      Object.entries(override.translations).forEach(([lang, value]) => {
+        mergedTranslations[lang] = {
+          ...(mergedTranslations[lang] || {}),
+          ...value
+        };
+      });
+    }
+
+    content[slug] = {
+      ...existing,
+      ...override,
+      translations: mergedTranslations
+    };
+  }
+
+  function simpleOverride(config) {
+    return {
+      mapUrl: config.mapUrl,
+      coordinates: config.coordinates,
+      translations: {
+        ca: {
+          seo: {
+            title: config.seoTitle,
+            description: config.seoDescription
+          },
+          title: config.title,
+          intro: config.intro,
+          meta: config.meta,
+          highlights: config.highlights,
+          idealFor: config.idealFor,
+          sections: [
+            {
+              kicker: "La cala",
+              title: config.sectionTitle,
+              paragraphs: config.paragraphs,
+              items: config.items || []
+            }
+          ]
+        }
+      }
+    };
+  }
+
+  const overrides = {
+    "cala-cap-de-planes": simpleOverride({
+      title: "Cala Cap de Planes",
+      seoTitle: "Cala Cap de Planes | Mont-ras | Cala del tram d'Estreta",
+      seoDescription: "Fitxa de Cala Cap de Planes, entre Mont-ras i Palamos: una cala de cami de ronda, roca i bones vistes cap a les Formigues.",
+      mapUrl: "https://maps.app.goo.gl/swfkYEmfP77hr4bz8",
+      coordinates: [41.8793, 3.1717],
+      intro: "Cap de Planes forma part d'aquest tram tan agraït de costa que convida a caminar i anar descobrint cala rere cala fins a trobar la que et demana quedar-t'hi.",
+      meta: ["Mont-ras", "Acces a peu", "Roca i caseta de pescadors"],
+      highlights: ["Illes Formigues", "Cami de ronda", "Rocosa"],
+      idealFor: "Qui vol un dia de caminar i anar triant racons més que no pas plantar-se en una sola platja.",
+      sectionTitle: "Una cala que forma part d'un conjunt",
+      paragraphs: [
+        "Aquesta cala funciona molt bé quan l'entens dins del sistema de racons que uneix Calella i Castell. Hi ha vistes, relleu i una arribada que ja et posa en context.",
+        "La caseta de pescadors i la proximitat d'altres cales com Roca Bona o Estreta fan que sigui molt bona per encadenar trams de litoral."
+      ],
+      items: ["Molt indicada per a sortides a peu.", "Ideal si t'agrada recórrer més d'una cala el mateix dia."]
+    }),
+    "cala-corbs": simpleOverride({
+      title: "Cala Corbs",
+      seoTitle: "Cala Corbs | Palamos | Cala discreta i rocosa",
+      seoDescription: "Fitxa de Cala Corbs, a Palamos: un raco discret, rocós i apartat per a qui vol una parada més silenciosa.",
+      mapUrl: "https://maps.app.goo.gl/Wh761TWWwvBa2aKX8",
+      coordinates: [41.8568, 3.1278],
+      intro: "Cala Corbs té una escala més discreta i una manera més silenciosa d'entrar a l'aigua. És una cala de recolliment i de poca escenografia.",
+      meta: ["Palamos", "Rocosa", "Acces a peu"],
+      highlights: ["Discreta", "Roca", "Tranquilla"],
+      idealFor: "Qui prefereix racons menuts i sense gaire trànsit de gent.",
+      sectionTitle: "Per quedar-hi una estona sense soroll",
+      paragraphs: [
+        "No és una cala de grans gestos. Precisament per això pot agradar molt a qui busca una visita més discreta i una relació molt directa amb la roca i el mar.",
+        "La millor manera de viure-la és sense presses i sense esperar res més que un racó tranquil."
+      ]
+    }),
+    "cala-dels-canyers": simpleOverride({
+      title: "Cala dels Canyers",
+      seoTitle: "Cala dels Canyers | Palamos | Tram nudista del sector de Castell",
+      seoDescription: "Fitxa de Cala dels Canyers, a Palamos: un petit tram rocós del sector de Castell on el nudisme encaixa de manera natural.",
+      mapUrl: "https://maps.app.goo.gl/xuDrL1r79MxcnyCfA",
+      coordinates: [41.8613, 3.1575],
+      intro: "Els Canyers encaixen molt bé amb aquesta idea de racons que apareixen al costat d'una platja gran i que, de cop, et canvien completament el to de la visita.",
+      meta: ["Palamos", "Sector de Castell", "Roca i pas de cami"],
+      highlights: ["Castell", "Raco", "Natural"],
+      idealFor: "Qui vol un punt més discret i menys central dins del gran conjunt de Castell.",
+      sectionTitle: "Una escala mes petita dins d'un lloc gran",
+      paragraphs: [
+        "Quan tens ganes de Castell però vols una escala més recollida, aquest tipus de tram funciona molt bé. Té menys aparença de gran platja i més de racó trobat.",
+        "És una bona opció si t'agrada anar-te desplaçant i decidir sobre el terreny on et quedes."
+      ]
+    }),
+    "cala-de-l-ametller": simpleOverride({
+      title: "Cala de l'Ametller",
+      seoTitle: "Cala de l'Ametller | Sant Feliu de Guixols | Roca i mar",
+      seoDescription: "Fitxa de Cala de l'Ametller, a Sant Feliu de Guixols: un raco rocós i poc convencional per a qui gaudeix del litoral més mineral.",
+      mapUrl: "https://maps.app.goo.gl/f2CzoEHN4WjpXugN6",
+      coordinates: [41.7758, 3.0361],
+      intro: "L'Ametller és d'aquells racons on pesa més la pedra, el gest del litoral i la manera de mirar el mar que no pas la idea de platja clàssica.",
+      meta: ["Sant Feliu de Guixols", "Roca", "Acces a peu"],
+      highlights: ["Mineral", "Discreta", "Mar obert"],
+      idealFor: "Qui connecta millor amb trams de costa de roca que no pas amb un arenal tradicional.",
+      sectionTitle: "Una altra manera de banyar-se",
+      paragraphs: [
+        "Aquí la visita té més a veure amb trobar el teu lloc entre la roca i entrar a l'aigua en un entorn molt directe i poc maquillat.",
+        "Aquesta manera més austera de viure la costa és justament el que la fa especial per a molta gent."
+      ]
+    }),
+    "cala-futadera": simpleOverride({
+      title: "Cala Futadera",
+      seoTitle: "Cala Futadera | Tossa de Mar | Cala d'escales i gran verticalitat",
+      seoDescription: "Fitxa de Cala Futadera, a Tossa de Mar: una cala abrupta, espectacular i molt de penya-segat.",
+      mapUrl: "https://maps.app.goo.gl/imzTMJ8nDRhnhhsr7",
+      coordinates: [41.7311, 2.9315],
+      intro: "Futadera és una cala molt de Tossa: escales, relleu, verticalitat i aquella sensació de lloc potent que no es regala a la primera.",
+      meta: ["Tossa de Mar", "Escales", "Cala abrupta"],
+      highlights: ["Verticalitat", "Paisatge", "Esforc"],
+      idealFor: "Qui no li fa res una arribada exigent si al final hi ha una cala molt espectacular.",
+      sectionTitle: "La recompensa després de l'escala",
+      paragraphs: [
+        "El camí condiciona la visita i forma part de l'experiència. Quan arribes a baix, el relleu i la forma de la cala fan la resta.",
+        "És una cala per anar-hi amb ganes i amb temps, no per improvisar-la corrents."
+      ]
+    }),
+    "cala-giveroleta": simpleOverride({
+      title: "Cala Giveroleta",
+      seoTitle: "Cala Giveroleta | Tossa de Mar | Petit raco del cami de ronda",
+      seoDescription: "Fitxa de Cala Giveroleta, a Tossa de Mar: un petit raco molt apropiat per combinar amb altres cales del mateix tram.",
+      mapUrl: "https://maps.app.goo.gl/RaYoc1cFqV8bidcm6",
+      coordinates: [41.7248, 2.9334],
+      intro: "Giveroleta funciona molt bé com a part d'un dia de caminar i anar triant racons al litoral de Tossa.",
+      meta: ["Tossa de Mar", "Cami de ronda", "Petita"],
+      highlights: ["Raco", "Ruta", "Costa de Tossa"],
+      idealFor: "Qui vol un tram curt i bonic més que no pas una gran cala on passar tot el dia.",
+      sectionTitle: "Per sumar dins d'una ruta",
+      paragraphs: [
+        "A vegades el valor d'una cala no és tant el seu tamany com el lloc que ocupa dins d'un itinerari. Aquí passa exactament això.",
+        "Si t'agrada caminar vora mar, té tot el sentit del món incloure-la en una jornada més llarga."
+      ]
+    }),
+    "cala-morisca": simpleOverride({
+      title: "Cala Morisca",
+      seoTitle: "Cala Morisca | Tossa de Mar | Cala discreta del mateix tram",
+      seoDescription: "Fitxa de Cala Morisca, a Tossa de Mar: una cala petita i tranquil.la per a qui busca una parada més discreta.",
+      mapUrl: "https://maps.app.goo.gl/fQo9SaeWBkAQ8g1r8",
+      coordinates: [41.7191, 2.932],
+      intro: "Morisca és una d'aquelles cales que agraden a qui no necessita gaire més que un bon racó i una mica de calma.",
+      meta: ["Tossa de Mar", "Rocosa", "Tranquilla"],
+      highlights: ["Discreta", "Petita", "Calma"],
+      idealFor: "Qui busca un lloc menut on el protagonisme sigui del paisatge i no del volum de gent.",
+      sectionTitle: "Una parada menuda i bona",
+      paragraphs: [
+        "Té aquesta mida que convida a adaptar-te al lloc en comptes d'imposar-hi un dia de platja clàssic.",
+        "És una opció molt bona si et mou més la intuïció del racó que no pas la comoditat."
+      ]
+    }),
+    "cala-rajols": simpleOverride({
+      title: "Cala Rajols",
+      seoTitle: "Cala Rajols | Lloret de Mar | Raco discret del litoral de Lloret",
+      seoDescription: "Fitxa de Cala Rajols, a Lloret de Mar: un raco discret per a qui vol sortir del front més conegut del municipi.",
+      mapUrl: "https://maps.app.goo.gl/pJ2GcCZcvrYtyZFe6",
+      coordinates: [41.6939, 2.8612],
+      intro: "Rajols és una cala de perfil baix, més per a qui vol desviar-se una mica del que ja coneix que no pas per a qui busca una postal immediata.",
+      meta: ["Lloret de Mar", "Acces a peu", "Discreta"],
+      highlights: ["Lloret", "Raco", "Roca"],
+      idealFor: "Qui vol un punt més silenciós dins d'un municipi molt visitat.",
+      sectionTitle: "Lloret en versio recollida",
+      paragraphs: [
+        "El seu valor és precisament aquest contrast entre un entorn turísticament molt conegut i una cala que encara es deixa viure amb més quietud.",
+        "Si tens ganes de fugir del front més evident, és una bona candidata."
+      ]
+    }),
+    "desembocadura-de-la-tordera": simpleOverride({
+      title: "Desembocadura de la Tordera",
+      seoTitle: "Desembocadura de la Tordera | Blanes | Delta, dunes i gran espai obert",
+      seoDescription: "Fitxa de la desembocadura de la Tordera, a Blanes: un gran espai de dunes, pinar i ambient molt obert amb tradicio naturista.",
+      mapUrl: "https://maps.app.goo.gl/Y4rnkUdyUhT4R9xh8",
+      coordinates: [41.6658, 2.7934],
+      intro: "La Tordera tanca el directori amb un altre registre: no una cala, sinó un gran espai de delta, dunes i pinar on el paisatge obert ho canvia tot.",
+      meta: ["Blanes", "Delta i dunes", "Gran platja oberta"],
+      highlights: ["Delta", "Dunes", "Espai obert"],
+      idealFor: "Qui prefereix grans trams per caminar, observar l'entorn i tenir molt d'espai al voltant.",
+      sectionTitle: "Mes paisatge que cala",
+      paragraphs: [
+        "Aquí la visita té més a veure amb la idea de tram natural extens que no pas amb una sola entrada a mar entre roques.",
+        "Justament per això és una peça molt valuosa: amplia el directori cap a un tipus de litoral diferent i molt complementari."
+      ],
+      items: ["Bona per combinar passeig llarg i bany.", "El vent i l'estació canvien molt la percepció del lloc."]
+    }),
+    "roca-bona": {
+      mapUrl: "https://maps.app.goo.gl/JDuBHnLqzUtrZkcm8",
+      coordinates: [41.8784, 3.1724],
+      translations: {
+        ca: {
+          title: "Cala Roca Bona",
+          seo: {
+            title: "Cala Roca Bona | Palamos | Cala del tram d'Estreta",
+            description: "Fitxa de Cala Roca Bona, a Palamos: un raco que es viu molt be com a part del conjunt amb el Crit i Estreta."
+          }
+        }
+      }
+    },
+    "platja-de-castell": {
+      mapUrl: "https://maps.app.goo.gl/r1AaRYMYJrtM2Kbz9",
+      coordinates: [41.862, 3.158],
+      translations: {
+        ca: {
+          title: "Platja del Castell",
+          seo: {
+            title: "Platja del Castell | Palamos | Gran platja preservada",
+            description: "Fitxa de la Platja del Castell, a Palamos: un gran arenal preservat on el nudisme es concentra sobretot al costat dret."
+          }
+        }
+      }
+    },
+    "cala-de-les-roques-planes": {
+      mapUrl: "https://maps.app.goo.gl/B7K7BeemxbK2dXSh6",
+      coordinates: [41.8445, 3.1018],
+      translations: {
+        ca: {
+          title: "Cala de Roques Planes"
+        }
+      }
+    },
+    "cala-del-senyor-ramon": {
+      mapUrl: "https://maps.app.goo.gl/ttjAdFvQ3CH3Tou68",
+      coordinates: [41.756, 2.936],
+      translations: {
+        ca: {
+          title: "Cala del Sr. Ramon"
+        }
+      }
+    },
+    "cala-del-vigata": {
+      mapUrl: "https://maps.app.goo.gl/BSuiE52hqb3XLFQeA",
+      coordinates: [41.7701, 3.0452]
+    },
+    "cala-vallpresona": {
+      mapUrl: "https://maps.app.goo.gl/ecgLPMFXiWY2mNXS9",
+      coordinates: [41.7473, 2.9245]
+    },
+    "cala-figuera": {
+      mapUrl: "https://maps.app.goo.gl/RWtda7j9SWvzCAF57",
+      coordinates: [41.7035, 2.9202]
+    },
+    "cala-boadella": {
+      mapUrl: "https://maps.app.goo.gl/5s5yAs8m1sTByRgR6",
+      coordinates: [41.7004, 2.8341]
+    },
+    "cala-del-crit": {
+      mapUrl: "https://maps.app.goo.gl/DdKsPdZZWJfmVeHc9",
+      coordinates: [41.8845, 3.1733]
+    },
+    "illa-roja": {
+      mapUrl: "https://maps.app.goo.gl/SukpzRdXwbNN3ANo8",
+      coordinates: [41.967, 3.226]
+    }
+  };
+
+  Object.entries(overrides).forEach(([slug, override]) => mergeEntry(slug, override));
+})();
+

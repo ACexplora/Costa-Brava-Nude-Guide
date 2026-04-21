@@ -1,4 +1,4 @@
-const beaches = [
+const allBeaches = [
   {
     name: "Cala del Senyor Ramon",
     town: "Santa Cristina d'Aro / Tossa de Mar",
@@ -421,16 +421,324 @@ const beaches = [
   }
 ];
 
+const newBeaches = [
+  {
+    name: "Cala s'Eixugador",
+    town: "Begur",
+    zone: "Baix Emporda",
+    type: "senderisme",
+    distance: "Acces per cami de ronda",
+    description: "Raco estret i elegant entre roques i pinar, molt propi del Begur mes retallat i silencios.",
+    tags: ["Begur", "Cami de ronda", "Rocosa"],
+    image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.9415, 3.2225],
+    href: "platges/cala-s-eixugador.html"
+  },
+  {
+    name: "Platja Fonda",
+    town: "Begur",
+    zone: "Baix Emporda",
+    type: "senderisme",
+    distance: "Acces per escales",
+    description: "Platja ombria i molt fotogenica on la part mes al nord es la que acostuma a tenir mes ambient naturista.",
+    tags: ["Begur", "Escales", "Mixta"],
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.9427, 3.2145],
+    href: "platges/platja-fonda.html"
+  },
+  {
+    name: "Aigua Xelida",
+    town: "Palafrugell",
+    zone: "Baix Emporda",
+    type: "salvatge",
+    distance: "Acces a peu",
+    description: "Petit paradis de roca i aigua transparent on el nudisme es practica sobretot a les plataformes i trams mes apartats.",
+    tags: ["Palafrugell", "Roca", "Snorkel"],
+    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.9118, 3.1946],
+    href: "platges/aigua-xelida.html"
+  },
+  {
+    name: "Cala Predrosa",
+    town: "Palafrugell",
+    zone: "Baix Emporda",
+    type: "senderisme",
+    distance: "Acces per cami",
+    description: "Cala recollida de codols i roca, molt bona per a qui gaudeix de llocs petits i d'arribades pausades.",
+    tags: ["Palafrugell", "Codols", "Natural"],
+    image: "https://images.unsplash.com/photo-1501959915551-4e8a04b6f9c1?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.9102, 3.1921],
+    href: "platges/cala-predrosa.html"
+  },
+  {
+    name: "Cala del Cau",
+    town: "Palafrugell",
+    zone: "Baix Emporda",
+    type: "salvatge",
+    distance: "Acces a peu",
+    description: "Raco menut i discret del tram entre capes i penya-segats, per a qui busca silenci i mar molt a prop.",
+    tags: ["Palafrugell", "Discreta", "Roca"],
+    image: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.8998, 3.1845],
+    href: "platges/cala-del-cau.html"
+  },
+  {
+    name: "Cala d'en Massoni",
+    town: "Palafrugell",
+    zone: "Baix Emporda",
+    type: "salvatge",
+    distance: "Acces a peu",
+    description: "Cala de personalitat forta dins del sector de Cap Roig, ideal per a una visita mes contemplativa que no pas urbana.",
+    tags: ["Palafrugell", "Cap Roig", "Rocosa"],
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.8959, 3.1825],
+    href: "platges/cala-d-en-massoni.html"
+  },
+  {
+    name: "Cala Cap de Planes",
+    town: "Mont-ras",
+    zone: "Baix Emporda",
+    type: "senderisme",
+    distance: "Acces a peu",
+    description: "Cala del tram entre Calella i Castell amb caseta de pescadors, bones vistes i una bona sensacio de cami de costa.",
+    tags: ["Mont-ras", "Illes Formigues", "Roca"],
+    image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.8793, 3.1717],
+    href: "platges/cala-cap-de-planes.html"
+  },
+  {
+    name: "Cala Corbs",
+    town: "Palamos",
+    zone: "Baix Emporda",
+    type: "salvatge",
+    distance: "Acces pel cami de ronda",
+    description: "Cala recollida i rocosa per a qui vol una aturada mes discreta dins del litoral de Palamos.",
+    tags: ["Palamos", "Discreta", "Roca"],
+    image: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.8568, 3.1278],
+    href: "platges/cala-corbs.html"
+  },
+  {
+    name: "Cala dels Canyers",
+    town: "Palamos",
+    zone: "Baix Emporda",
+    type: "salvatge",
+    distance: "Acces a peu",
+    description: "Petit tram rocos del sector de Castell on el nudisme encaixa de manera natural amb el paisatge i el pas del cami.",
+    tags: ["Palamos", "Rocosa", "Natural"],
+    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.8613, 3.1575],
+    href: "platges/cala-dels-canyers.html"
+  },
+  {
+    name: "Cala de l'Ametller",
+    town: "Sant Feliu de Guixols",
+    zone: "Baix Emporda",
+    type: "salvatge",
+    distance: "Acces a peu",
+    description: "Raco rocos i poc convencional, bo per a qui gaudeix d'aquells punts on el bany es combina amb pedra, sol i molta mar.",
+    tags: ["Sant Feliu", "Roca", "Discreta"],
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.7758, 3.0361],
+    href: "platges/cala-de-l-ametller.html"
+  },
+  {
+    name: "Cala Futadera",
+    town: "Tossa de Mar",
+    zone: "Selva",
+    type: "senderisme",
+    distance: "Acces per escales",
+    description: "Cala abrupta i molt espectacular per a qui vol roca, verticalitat i una sensacio molt salvatge.",
+    tags: ["Tossa", "Escales", "Panoramica"],
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.7311, 2.9315],
+    href: "platges/cala-futadera.html"
+  },
+  {
+    name: "Cala Giveroleta",
+    town: "Tossa de Mar",
+    zone: "Selva",
+    type: "senderisme",
+    distance: "Acces pel cami de ronda",
+    description: "Petit raco del litoral de Tossa que funciona molt be si t'agrada anar encadenant cales i miradors.",
+    tags: ["Tossa", "Cami de ronda", "Roca"],
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.7248, 2.9334],
+    href: "platges/cala-giveroleta.html"
+  },
+  {
+    name: "Cala Morisca",
+    town: "Tossa de Mar",
+    zone: "Selva",
+    type: "senderisme",
+    distance: "Acces a peu",
+    description: "Cala tranquil.la del mateix gran tram de Tossa, pensada per a qui prefereix llocs petits i una mica apartats.",
+    tags: ["Tossa", "Discreta", "Rocosa"],
+    image: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.7191, 2.932],
+    href: "platges/cala-morisca.html"
+  },
+  {
+    name: "Cala Rajols",
+    town: "Lloret de Mar",
+    zone: "Selva",
+    type: "senderisme",
+    distance: "Acces a peu",
+    description: "Raco mes discret del litoral de Lloret, bo per a qui vol apartar-se del front mes conegut i trobar una escala mes petita.",
+    tags: ["Lloret", "Roca", "Discreta"],
+    image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.6939, 2.8612],
+    href: "platges/cala-rajols.html"
+  },
+  {
+    name: "Desembocadura de la Tordera",
+    town: "Blanes",
+    zone: "Selva",
+    type: "accessible",
+    distance: "Acces facil segons tram",
+    description: "Gran tram final de delta amb dunes, pinar i ambient molt obert, ideal per a qui busca espai i una lectura molt natural del litoral.",
+    tags: ["Delta", "Dunes", "Espai obert"],
+    image: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80",
+    coords: [41.6658, 2.7934],
+    href: "platges/desembocadura-de-la-tordera.html"
+  }
+];
+
+const beachOverrides = {
+  "platges/cala-del-senyor-ramon.html": {
+    name: "Cala del Sr. Ramon",
+    town: "Santa Cristina d'Aro",
+    distance: "10 min a peu",
+    description: "Cala de gran tradicio naturista, amb xiringuito, bons fondejos i un paisatge que demana instal.lar-s'hi una bona estona.",
+    tags: ["Mixta", "Snorkel", "Tradicio"]
+  },
+  "platges/platja-de-castell.html": {
+    name: "Platja del Castell",
+    town: "Palamos",
+    distance: "Acces facil i aparcament",
+    description: "Gran platja preservada per la lluita veinal, amb molt d'espai i una tradicio naturista clara al costat dret.",
+    tags: ["Arenal", "Aparcament", "Historic"]
+  },
+  "platges/illa-roja.html": {
+    name: "Platja de l'Illa Roja i Cala Moreta",
+    description: "Una de les platges nudistes mes conegudes de la Costa Brava, marcada per la gran roca rogenca i un paisatge immediatament recognoscible.",
+    tags: ["Classica", "Panoramica", "Popular"]
+  },
+  "platges/cala-del-crit.html": {
+    town: "Mont-ras",
+    distance: "Acces pel cami de ronda"
+  },
+  "platges/roca-bona.html": {
+    name: "Cala Roca Bona",
+    town: "Palamos",
+    distance: "Acces pel cami de ronda"
+  },
+  "platges/cala-de-les-roques-planes.html": {
+    name: "Cala de Roques Planes",
+    distance: "15 min a peu"
+  },
+  "platges/cala-del-vigata.html": {
+    distance: "Acces a peu"
+  },
+  "platges/cala-vallpresona.html": {
+    distance: "10 min a peu des de la carretera",
+    description: "Cala plenament verge, amagada entre bosc i penya-segat, molt adequada per a qui vol una sensacio d'aillament real.",
+    tags: ["Santa Cristina", "Verge", "Senderisme"]
+  },
+  "platges/cala-figuera.html": {
+    distance: "Acces curt des de la carretera",
+    description: "Cala del costat de Llevado on el nudisme es viu amb molta naturalitat i on l'entorn mante una gran força visual.",
+    tags: ["Tossa", "Salvatge", "Mar clar"]
+  },
+  "platges/cala-boadella.html": {
+    distance: "Acces curt",
+    coords: [41.7004, 2.8341]
+  },
+  "platges/platja-de-pals.html": {
+    distance: "Acces facil",
+    coords: [41.9872, 3.2018]
+  },
+  "platges/platja-de-la-platera.html": {
+    distance: "Acces senzill",
+    coords: [42.0411, 3.2015]
+  },
+  "platges/cala-pi.html": {
+    distance: "15 min a peu",
+    coords: [42.4278, 3.1672]
+  },
+  "platges/cala-borro.html": {
+    distance: "10 min a peu",
+    coords: [42.4029, 3.1593]
+  }
+};
+
+const directoryOrder = [
+  "Cala del Pi",
+  "Cala Borro",
+  "Platja Gran del Futaner",
+  "Cala Tamariua",
+  "Cala Taballera",
+  "Cala Fredosa",
+  "Cala Jugadora",
+  "Platja de Sant Lluis",
+  "Cala s'Alqueria Gran",
+  "Cala s'Alqueria Petita",
+  "Platja Sa Conca (roques)",
+  "Cala Sa Sabolla",
+  "Cala de la Murtra",
+  "Platja de Can Comes",
+  "Platja del Cortal de la Vila",
+  "Platja del Riuet",
+  "Cala Ferriol",
+  "Cala Pedrosa",
+  "Platja de la Platera",
+  "La Gola de Ter",
+  "Platja de Pals",
+  "Platja de l'Illa Roja i Cala Moreta",
+  "Cala s'Eixugador",
+  "Platja Fonda",
+  "Aigua Xelida",
+  "Cala Predrosa",
+  "Cala del Cau",
+  "Cala d'en Massoni",
+  "Cala del Crit",
+  "Cala Cap de Planes",
+  "Cala Roca Bona",
+  "Cala Estreta",
+  "Cala Corbs",
+  "Cala dels Canyers",
+  "Platja del Castell",
+  "Cala de Roques Planes",
+  "Cala Canyers",
+  "Cala de l'Ametller",
+  "Cala del Vigata",
+  "Cala del Sr. Ramon",
+  "Cala Vallpresona",
+  "Cala Futadera",
+  "Cala Giveroleta",
+  "Cala Figuera",
+  "Cala Morisca",
+  "Cala Rajols",
+  "Cala Boadella",
+  "Desembocadura de la Tordera"
+];
+
+const beaches = allBeaches
+  .map((beach) => ({ ...beach, ...(beachOverrides[beach.href] || {}) }))
+  .concat(newBeaches)
+  .filter((beach) => directoryOrder.includes(beach.name))
+  .sort((left, right) => directoryOrder.indexOf(left.name) - directoryOrder.indexOf(right.name));
+
 const featuredBeachNames = new Set([
   "Cala Taballera",
   "Cala Estreta",
-  "Illa Roja",
+  "Platja de l'Illa Roja i Cala Moreta",
   "Cala Boadella"
 ]);
 
 const heroCarouselNames = [
   "Cala Estreta",
-  "Illa Roja",
+  "Platja de l'Illa Roja i Cala Moreta",
   "Cala Boadella"
 ];
 
