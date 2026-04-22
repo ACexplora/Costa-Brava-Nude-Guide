@@ -460,8 +460,18 @@ h3 {
   margin: 0 auto;
 }
 
+.section-frame {
+  border-radius: 34px;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.58), rgba(255, 248, 241, 0.42));
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-soft);
+}
+
 .editorial-intro {
-  padding: 0.4rem 0 2.4rem;
+  padding-top: 1.4rem;
+  padding-bottom: 2rem;
 }
 
 .editorial-intro__lead {
@@ -521,7 +531,10 @@ h3 {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
   gap: 1rem;
-  padding: 0 0 2.8rem;
+  padding-top: 1.4rem;
+  padding-bottom: 2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 2.8rem;
 }
 
 .philosophy-strip__copy,
@@ -1531,5 +1544,10 @@ h3 {
   .editorial-quote p {
     padding: 1.6rem;
     max-width: none;
+  }
+
+  .section-frame {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
