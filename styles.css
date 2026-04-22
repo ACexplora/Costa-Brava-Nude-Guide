@@ -452,7 +452,10 @@ h3 {
 }
 
 .editorial-intro,
-.editorial-quote {
+.editorial-quote,
+.philosophy-strip,
+.experiences-section,
+.blog-section {
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
 }
@@ -512,6 +515,40 @@ h3 {
   margin: 0;
   color: var(--muted);
   line-height: 1.75;
+}
+
+.philosophy-strip {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1rem;
+  padding: 0 0 2.8rem;
+}
+
+.philosophy-strip__copy,
+.philosophy-strip__list,
+.experience-card,
+.blog-card {
+  padding: 1.6rem;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top left, rgba(34, 139, 140, 0.08), transparent 42%),
+    linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,249,243,0.62));
+  border: 1px solid rgba(255,255,255,0.58);
+  box-shadow: var(--shadow-soft);
+}
+
+.philosophy-strip__list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.philosophy-strip__list p {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.46);
+  color: var(--text);
+  line-height: 1.65;
 }
 
 .hero-panel {
@@ -818,6 +855,53 @@ h3 {
   line-height: 1.08;
   color: var(--text);
   max-width: 22ch;
+}
+
+.experiences-section,
+.blog-section {
+  padding: 0 0 3rem;
+}
+
+.experiences-grid,
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.blog-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.experience-card span,
+.blog-card span {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.experience-card h3,
+.blog-card h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.9rem;
+}
+
+.experience-card p,
+.blog-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.experience-card a {
+  display: inline-flex;
+  margin-top: 1.2rem;
+  font-weight: 800;
+  color: var(--accent-strong);
 }
 
 .faq-section,
@@ -1170,7 +1254,10 @@ h3 {
   .hero-manifesto,
   .filter-bar,
   .editorial-intro__lead,
+  .philosophy-strip,
   .editorial-intro__grid,
+  .experiences-grid,
+  .blog-grid,
   .info-strip,
   .beach-grid,
   .gallery-thumbs {
