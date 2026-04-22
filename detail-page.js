@@ -186,7 +186,9 @@ function mergeBeachTranslation(base = {}, override = {}) {
     seo: { ...(base.seo || {}), ...(override.seo || {}) },
     meta: Array.isArray(override.meta) && override.meta.length ? override.meta : (base.meta || []),
     highlights: Array.isArray(override.highlights) && override.highlights.length ? override.highlights : (base.highlights || []),
-    sections: Array.isArray(override.sections) && override.sections.length ? override.sections : (base.sections || [])
+    sections: Array.isArray(override.sections) && override.sections.length ? override.sections : (base.sections || []),
+    quickFacts: Array.isArray(override.quickFacts) && override.quickFacts.length ? override.quickFacts : (base.quickFacts || []),
+    cta: override.cta ? { ...(base.cta || {}), ...override.cta } : (base.cta || null)
   };
 }
 
@@ -336,8 +338,8 @@ function renderDetailSections(sections) {
   }
 
   detailContent.innerHTML = "";
-  sections.slice(0, 2).forEach((section, index) => {
-    const node = document.createElement(index === 0 ? "article" : "aside");
+  sections.forEach((section, index) => {
+    const node = document.createElement(index === 1 ? "aside" : "article");
     node.className = "detail-section";
 
     if (section.kicker) {
@@ -369,8 +371,76 @@ function renderDetailSections(sections) {
       node.appendChild(ul);
     }
 
-    detailContent.appendChild(node);
+      detailContent.appendChild(node);
   });
+}
+
+function renderQuickFacts(quickFacts) {
+  document.querySelector(".detail-quickfacts")?.remove();
+
+  if (!Array.isArray(quickFacts) || quickFacts.length === 0) {
+    return;
+  }
+
+  const anchor = document.querySelector(".detail-gallery") || document.querySelector(".detail-hero");
+  if (!anchor) {
+    return;
+  }
+
+  const section = document.createElement("section");
+  section.className = "detail-quickfacts";
+
+  const grid = document.createElement("div");
+  grid.className = "quickfacts-grid";
+
+  quickFacts.forEach((fact) => {
+    if (!fact?.label || !fact?.value) {
+      return;
+    }
+
+    const article = document.createElement("article");
+    article.className = "quickfact-card";
+    article.innerHTML = `
+      <span>${fact.label}</span>
+      <strong>${fact.value}</strong>
+    `;
+    grid.appendChild(article);
+  });
+
+  if (!grid.children.length) {
+    return;
+  }
+
+  section.appendChild(grid);
+  anchor.after(section);
+}
+
+function renderEditorialCta(cta) {
+  document.querySelector(".detail-editorial-cta")?.remove();
+
+  if (!cta?.title || !cta?.body || !cta?.href || !cta?.linkLabel) {
+    return;
+  }
+
+  const anchor =
+    document.querySelector(".comments-section") ||
+    document.querySelector(".detail-back") ||
+    document.querySelector(".detail-content");
+
+  if (!anchor) {
+    return;
+  }
+
+  const section = document.createElement("section");
+  section.className = "detail-editorial-cta";
+  section.innerHTML = `
+    <p class="section-kicker">${cta.kicker || "Experiencies"}</p>
+    <h2>${cta.title}</h2>
+    <p>${cta.body}</p>
+    <a href="${cta.href}" target="_blank" rel="noopener noreferrer">${cta.linkLabel}</a>
+  `;
+
+  anchor.before(section);
 }
 
 function renderDetailContent() {
@@ -621,7 +691,9 @@ function refreshDetailPage() {
   const content = detailContentForPage();
   renderDetailContent();
   buildDetailGallery();
+  renderQuickFacts(content?.quickFacts || []);
   buildDetailInsights();
+  renderEditorialCta(content?.cta || null);
   renderStructuredData(content);
 }
 

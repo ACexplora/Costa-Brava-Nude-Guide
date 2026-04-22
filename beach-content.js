@@ -2463,45 +2463,85 @@ window.COSTA_BRAVA_BEACH_CONTENT = {
         }
       }
     },
-    "cala-taballera": {
-      mapUrl: "https://maps.app.goo.gl/4iomdZym3mKZSizh7",
-      translations: {
-        ca: {
-          seo: {
-            title: "Cala Taballera | El Port de la Selva | Cala remota al Cap de Creus",
-            description: "Fitxa de Cala Taballera: una cala molt aillada del Cap de Creus, ideal per arribar-hi caminant o en barca."
-          },
-          intro: "Taballera es una d'aquelles cales que no es visiten per casualitat. Hi arribes expressament, sabent que el cami es llarg, i potser per aixo l'experiencia te tanta personalitat.",
-          meta: ["El Port de la Selva", "Mes de 2 hores pel GR-11", "Molt aillada i protegida"],
-          highlights: ["Cap de Creus", "GR-11", "Reserva integral"],
-          idealFor: "Qui valora mes el trajecte i la sensacio d'arribar lluny que no pas la comoditat immediata.",
-          sections: [
-            {
-              kicker: "La cala",
-              title: "Una gran entrada de mar amagada",
-              paragraphs: [
-                "Taballera queda al fons d'una llarga entrada marina i, per aixo mateix, es sent molt protegida. No es la cala tipica de baixada curta: aqui l'arribada forma part del record.",
-                "Per aquesta condicio remota hi es habitual trobar-hi gent naturista i navegants. Es una de les peces mes singulars del Cap de Creus."
-              ],
-              items: []
+      "cala-taballera": {
+        mapUrl: "https://maps.app.goo.gl/4iomdZym3mKZSizh7",
+        translations: {
+          ca: {
+            seo: {
+              title: "Cala Taballera | El Port de la Selva | Cap de Creus salvatge i ambient nudista",
+              description: "Cala Taballera, al Cap de Creus: caminada llarga, entorn remot, ambient naturista i una experiència molt millor fora de temporada."
             },
-            {
-              kicker: "Abans d'anar-hi",
-              title: "Ruta i mentalitat de visita",
-              paragraphs: [
-                "A peu, la referencia es el GR-11 seguint indicacions a Cala Taballera i Sant Baldiri. El cami es bonic, pero no curt: surt d'hora i pensa la sortida com una excursio completa.",
-                "L'altra manera natural d'entendre-la es arribar-hi per mar. En tots dos casos, convé anar-hi amb mentalitat de lloc remot i sense serveis."
-              ],
-              items: [
-                "Base de bolos i grava, amb uns 135 metres de longitud aproximada.",
-                "Molt bona opcio per a qui navega i busca una cala protegida.",
-                "No es una cala per improvisar si no portes aigua, menjar i temps."
-              ]
+            intro: "Taballera no es una cala d'arribar i marxar. Es una destinacio en si mateixa: cami llarg, paisatge aspre, molta sensacio de distancia i aquella calma fonda que nomes surt quan el lloc demana temps.",
+            meta: ["Alt Emporda · El Port de la Selva", "~2 hores a peu", "Paisatge salvatge i ambient naturista"],
+            highlights: ["Nudista", "Cap de Creus", "Senderisme", "Bici de muntanya", "Fora de temporada"],
+            idealFor: "Qui busca una cala remota, amb trajecte i caràcter, i entén que l'experiència comença molt abans de tocar l'aigua.",
+            quickFacts: [
+              { label: "Distancia", value: "~7 km (anada)" },
+              { label: "Temps a peu", value: "~2 hores" },
+              { label: "Inici de ruta", value: "Barrera Cami dels Masos" },
+              { label: "Dificultat", value: "Mitjana" }
+            ],
+            sections: [
+              {
+                kicker: "Com s'hi arriba",
+                title: "Una arribada que ja forma part de la cala",
+                paragraphs: [
+                  "Des del Port de la Selva pots pujar en cotxe fins a la barrera del Cami dels Masos. Si alla no hi ha lloc, la solucio acostuma a ser deixar el vehicle a l'ultim carrer de la urbanitzacio i començar a caminar des d'aquell punt.",
+                  "La ruta passa per Sant Baldiri i per Mas Paltre. El tram inicial es ample i clar, i es mes endavant quan el cami comenca a baixar decididament cap a la cala. No te sensacio de passeig curt: convé sortir-hi amb temps i mentalitat d'excursio."
+                ],
+                items: [
+                  "L'inici real pot variar alguns minuts segons on puguis aparcar.",
+                  "Porta calcat comode i assumeix que el valor d'aquesta cala comenca en el trajecte.",
+                  "Si hi vas per primera vegada, millor no arribar-hi amb presses."
+                ]
+              },
+              {
+                kicker: "La nostra experiencia",
+                title: "Una cala que canvia molt segons la temporada",
+                paragraphs: [
+                  "Nosaltres sempre l'hem viscut fora de temporada, sols o en parella. En aquell context la cala te una energia molt neta: poca gent, molt silenci i un ambient naturista bastant present entre les persones que s'hi acosten.",
+                  "A l'estiu la imatge canvia. Hi entren mes barques a fondejar i el to es torna mes mogut. Continua sent Taballera, pero no transmet el mateix tipus d'aillament."
+                ],
+                items: []
+              },
+              {
+                kicker: "En bici de muntanya",
+                title: "Una opcio molt bona si coneixes el terreny",
+                paragraphs: [
+                  "La ruta es practicable en BTT i, de fet, la tornada en bici te aquella recompensa que fa que l'esforc de pujada valgui la pena.",
+                  "Ara be: l'ultim tram de baixada es tecnic. Si no tens un domini bo de la bici, es mes assenyat fer aquest tros a peu i evitar una mala decisio en un lloc tan apartat."
+                ],
+                items: [
+                  "BTT si, pero sense forcar el terreny.",
+                  "Millor baixar l'ultim tram caminant que arriscar una caiguda.",
+                  "La tornada compensa molt si t'agrada pedalar en entorn natural."
+                ]
+              },
+              {
+                kicker: "Abans d'anar-hi",
+                title: "El tipus de visita que demana Taballera",
+                paragraphs: [
+                  "Aquesta es una cala per quedar-s'hi una estona i venir preparat. No hi trobaras cap bar, cap servei ni cap comoditat afegida: justament aqui hi ha part del seu encant.",
+                  "També convé recordar que som dins del Parc Natural. La relacio amb el lloc ha de ser respectuosa de veritat, no nomes esteticament."
+                ],
+                items: [
+                  "No es pot acampar ni fer foc.",
+                  "Porta aigua i menjar suficients; al desti no hi ha res.",
+                  "Si busques tranquil.litat i un ambient nudista mes natural, millor fora de juliol i agost.",
+                  "A l'estiu hi ha mes ocupacio de barques fondejades i la dinamica canvia."
+                ]
+              }
+            ],
+            cta: {
+              kicker: "Sortides guiades per Cap de Creus",
+              title: "Si et ve de gust descobrir aquest sector amb una mirada mes fonda",
+              body: "Fem rutes per aquesta zona amb coneixement directe del territori. Si busques una experiencia guiada, mes conscient i ben llegida des del paisatge, aqui tens una bona porta d'entrada.",
+              linkLabel: "Veure propostes a freehiking.eu",
+              href: "https://freehiking.eu/"
             }
-          ]
+          }
         }
-      }
-    },
+      },
     "cala-fredosa": {
       mapUrl: "https://maps.app.goo.gl/n6rwBuoL1wMk3okr6",
       translations: {
