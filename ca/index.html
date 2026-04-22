@@ -68,30 +68,58 @@
   <main>
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Guia local 2026</p>
-        <h1>Descobreix les platges nudistes mes especials de la Costa Brava</h1>
-        <p class="hero-text">Una proposta visual inspirada en directoris moderns: filtres rapids, fitxes clares i informacio util per escollir cala tranquil.la, platja accessible o raco mes salvatge.</p>
+        <p class="eyebrow">Guia sensorial 2026</p>
+        <h1>No es nomes una guia. Es una manera de sentir la Costa Brava amb el cos i el paisatge.</h1>
+        <p class="hero-text">Hi ha llocs que no es recorden per una dada ni per una coordenada, sino per l'olor de pi, per la pedra calenta sota els peus, per aquell silenci just abans d'entrar a l'aigua. Aquesta portada vol comencar aqui.</p>
+        <div class="hero-manifesto">
+          <p>No venim a comptar platges. Venim a obrir portes a racons que canvien el ritme, afluixen la mirada i tornen el cos al centre.</p>
+          <p>Cales on la nuesa no es un reclam, sino una forma natural d'estar. Llocs on el trajecte també forma part de l'experiència.</p>
+        </div>
         <div class="hero-mini-grid">
-          <article><span>Directori</span><strong>Fitxes clares i visuals</strong></article>
-          <article><span>Mapa</span><strong>Navegacio geografica rapida</strong></article>
-          <article><span>Seleccio</span><strong>4 recomanades a portada</strong></article>
+          <article><span>Ritual</span><strong>Arribar, respirar i baixar el soroll</strong></article>
+          <article><span>Territori</span><strong>Capes, camins, dunes i cales amb memoria</strong></article>
+          <article><span>Mirada</span><strong>Una guia escrita des del vincle amb el lloc</strong></article>
         </div>
         <div class="hero-actions">
-          <a class="button primary" href="#platges">Explorar platges</a>
-          <a class="button secondary" href="#consells">Veure recomanacions</a>
+          <a class="button primary" href="#platges">Comencar la descoberta</a>
+          <a class="button secondary" href="#consells">Llegir l'esperit de la guia</a>
         </div>
         <ul class="hero-stats">
-          <li><strong>27</strong><span>platges destacades</span></li>
-          <li><strong>3</strong><span>zones de la costa</span></li>
-          <li><strong>4</strong><span>tipus d'experiencia</span></li>
+          <li><strong>27</strong><span>llocs per sentir, no nomes visitar</span></li>
+          <li><strong>3</strong><span>comarques que canvien de to a cada tram</span></li>
+          <li><strong>1</strong><span>fil conductor: llibertat, paisatge i respecte</span></li>
         </ul>
+      </div>
+    </section>
+
+    <section class="editorial-intro">
+      <div class="editorial-intro__lead">
+        <p class="section-kicker">Abans de buscar una cala</p>
+        <h2>La Costa Brava nudista no es viu com un cataleg. Es viu com una successio de moments.</h2>
+      </div>
+      <div class="editorial-intro__grid">
+        <article>
+          <span>01</span>
+          <h3>Hi ha dies d'escarpament i roca</h3>
+          <p>Cales petites on el mar sembla mes ferotge, on arribes a peu i cada passa et prepara per a una altra mena de calma.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Hi ha dies de sorra, dunes i horitzo</h3>
+          <p>Platges obertes on l'espai afluixa el cos, el vent mou la llum i tot sembla una mica menys urgent.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>I hi ha llocs que et troben a tu</h3>
+          <p>Racons que no impressionen per espectaculars, sino per la manera com et canvien el ritme quan hi ets.</p>
+        </article>
       </div>
     </section>
 
     <section class="filters" id="zones">
       <div class="filters-head">
-        <p class="section-kicker">Troba el teu raco</p>
-        <h2>Filtra per ambient, acces i zona</h2>
+        <p class="section-kicker">Troba el teu to</p>
+        <h2>Busca no nomes per zona, sino per la manera com et vols sentir</h2>
       </div>
       <div class="filter-bar">
         <input id="searchInput" type="search" placeholder="Cerca per nom o municipi">
@@ -114,10 +142,10 @@
     <section class="map-section">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">Mapa interactiu</p>
-          <h2>Ubicacions sobre la Costa Brava</h2>
+          <p class="section-kicker">Mapa emocional</p>
+          <h2>Un litoral per llegir amb el cos, el paisatge i la intuicio</h2>
         </div>
-        <p class="results-count">Clica un marcador per veure la fitxa resumida</p>
+        <p class="results-count">Cada marcador es una promesa de ritme, textura i atmosfera</p>
       </div>
       <div class="map-frame"><div class="map-toolbar"><span>Live map</span><span>OpenStreetMap</span><span>Directori Costa Brava</span></div><div id="map" class="map-shell" aria-label="Mapa interactiu de platges nudistes de la Costa Brava"></div></div>
     </section>
@@ -125,18 +153,22 @@
     <section class="beach-section" id="platges">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">Directori visual</p>
-          <h2>Platges recomanades</h2>
+          <p class="section-kicker">Seleccio editorial</p>
+          <h2>Quatre portes d'entrada a quatre maneres diferents de viure el mar</h2>
         </div>
         <p id="resultsCount" class="results-count"></p>
       </div>
       <div id="beachGrid" class="beach-grid"></div>
     </section>
 
+    <section class="editorial-quote">
+      <p>Hi ha cales on el primer bany sembla una tornada. No a un lloc concret, sino a una manera mes lenta, mes lliure i mes honesta d'estar al món.</p>
+    </section>
+
     <section class="info-strip" id="consells">
-      <article><h3>Respecte i convivencia</h3><p>Indica clarament si una platja es exclusivament nudista o mixta, i recomana comportaments respectuosos per a visitants nous.</p></article>
-      <article><h3>Acces i aparcament</h3><p>Afegeix temps de caminada, dificultat d'acces i opcions d'aparcament. Es de les dades mes utils per a l'usuari.</p></article>
-      <article><h3>Mapa interactiu despres</h3><p>Pots comencar amb HTML pur i mes endavant integrar Leaflet o Google Maps per ubicar les cales sobre el mapa.</p></article>
+      <article><h3>Respecte i convivencia</h3><p>Aquesta guia vol recordar que cada cala te un to propi. Llegir-lo, respectar-lo i ocupar-lo amb delicadesa forma part de l'experiencia.</p></article>
+      <article><h3>Acces i transicio</h3><p>Caminar, baixar escales, travessar un pinar o sentir el vent abans del mar no son molesties: sovint son el llindar emocional del lloc.</p></article>
+      <article><h3>Escollir be el dia</h3><p>No totes les cales demanen el mateix. N'hi ha de llum neta, n'hi ha de silenci, n'hi ha de roca calenta i tarda lenta. Aquesta guia vol ajudar-te a notar la diferencia.</p></article>
     </section>
 
     <section class="faq-section" id="faq">
