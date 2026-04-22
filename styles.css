@@ -453,7 +453,6 @@ h3 {
 
 .editorial-intro,
 .editorial-quote,
-.philosophy-strip,
 .experiences-section,
 .blog-section {
   width: min(1120px, calc(100% - 2rem));
@@ -470,75 +469,25 @@ h3 {
 }
 
 .editorial-intro {
-  padding-top: 1.4rem;
-  padding-bottom: 2rem;
+  padding-top: 1.6rem;
+  padding-bottom: 2.2rem;
 }
 
 .editorial-intro__lead {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 1.5rem;
-  align-items: end;
-  margin-bottom: 1.25rem;
+  display: block;
+  max-width: 58rem;
+  margin-bottom: 1.35rem;
 }
 
 .editorial-intro__lead h2 {
-  max-width: 14ch;
-}
-
-.editorial-intro__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.editorial-intro__grid article {
-  padding: 1.5rem;
-  border-radius: 30px;
-  background:
-    radial-gradient(circle at top left, rgba(34, 139, 140, 0.1), transparent 45%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 248, 241, 0.6));
-  border: 1px solid rgba(255, 255, 255, 0.58);
-  box-shadow: var(--shadow-soft);
-}
-
-.editorial-intro__grid span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  margin-bottom: 1rem;
-  background: rgba(8, 104, 119, 0.1);
-  color: var(--accent-strong);
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-.editorial-intro__grid h3 {
-  margin-bottom: 0.7rem;
-  font-size: 1.8rem;
-}
-
-.editorial-intro__grid p {
+  max-width: 16ch;
   margin: 0;
-  color: var(--muted);
-  line-height: 1.75;
+  font-size: clamp(3rem, 6vw, 5.2rem);
+  line-height: 0.94;
+  text-wrap: balance;
 }
 
-.philosophy-strip {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 1rem;
-  padding-top: 1.4rem;
-  padding-bottom: 2rem;
-  margin-top: 1.2rem;
-  margin-bottom: 2.8rem;
-}
-
-.philosophy-strip__copy,
-.philosophy-strip__list,
+.editorial-manifesto,
 .experience-card,
 .blog-card {
   padding: 1.6rem;
@@ -550,18 +499,46 @@ h3 {
   box-shadow: var(--shadow-soft);
 }
 
-.philosophy-strip__list {
-  display: grid;
-  gap: 0.9rem;
+.editorial-manifesto {
+  max-width: 52rem;
+  margin-top: 0.2rem;
 }
 
-.philosophy-strip__list p {
+.editorial-manifesto p {
   margin: 0;
-  padding: 1rem 1.1rem;
-  border-radius: 22px;
-  background: rgba(255,255,255,0.46);
   color: var(--text);
-  line-height: 1.65;
+  line-height: 1.88;
+  font-size: 1.06rem;
+}
+
+.editorial-manifesto p + p {
+  margin-top: 1rem;
+}
+
+.editorial-manifesto__lead {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+  line-height: 1.06;
+  color: var(--text);
+}
+
+.editorial-principles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.35rem;
+  max-width: 46rem;
+}
+
+.editorial-principles p {
+  margin: 0;
+  padding: 0.9rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.62);
+  border: 1px solid rgba(19, 38, 41, 0.08);
+  color: var(--accent-strong);
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 .hero-panel {
@@ -1267,8 +1244,6 @@ h3 {
   .hero-manifesto,
   .filter-bar,
   .editorial-intro__lead,
-  .philosophy-strip,
-  .editorial-intro__grid,
   .experiences-grid,
   .blog-grid,
   .info-strip,
