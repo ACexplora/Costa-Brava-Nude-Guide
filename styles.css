@@ -472,29 +472,33 @@ h3 {
 }
 
 .editorial-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 1.4rem 1.6rem;
+  align-items: start;
   padding-top: 1.6rem;
   padding-bottom: 2.2rem;
 }
 
 .editorial-intro__lead {
   display: block;
-  max-width: 58rem;
-  margin-bottom: 1.35rem;
+  max-width: none;
+  margin-bottom: 0;
 }
 
 .manifest-opening {
-  margin: 0.3rem 0 0.95rem;
-  max-width: 28rem;
-  font-size: 1rem;
-  line-height: 1.6;
+  margin: 0.35rem 0 0.8rem;
+  max-width: 24rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
   color: var(--muted);
 }
 
 .editorial-intro__lead h2 {
-  max-width: 16ch;
+  max-width: 13ch;
   margin: 0;
-  font-size: clamp(2.35rem, 4.7vw, 3.9rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 3.6vw, 3.15rem);
+  line-height: 1.02;
   text-wrap: balance;
 }
 
@@ -511,8 +515,8 @@ h3 {
 }
 
 .editorial-manifesto {
-  max-width: 52rem;
-  margin-top: 0.2rem;
+  max-width: none;
+  margin-top: 0;
 }
 
 .editorial-manifesto p {
@@ -527,9 +531,10 @@ h3 {
 }
 
 .editorial-manifesto__lead {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.9rem, 3.8vw, 2.8rem);
-  line-height: 1.06;
+  font-family: inherit;
+  font-size: 1.18rem;
+  line-height: 1.72;
+  font-weight: 700;
   color: var(--text);
 }
 
@@ -537,8 +542,9 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  margin-top: 1.35rem;
-  max-width: 46rem;
+  grid-column: 1 / -1;
+  margin-top: 0.15rem;
+  max-width: none;
 }
 
 .editorial-principles p {
@@ -1319,13 +1325,24 @@ h3 {
   .hero,
   .hero-manifesto,
   .filter-bar,
-  .editorial-intro__lead,
   .experiences-grid,
   .blog-grid,
   .info-strip,
   .beach-grid,
   .gallery-thumbs {
     grid-template-columns: 1fr;
+  }
+
+  .editorial-intro {
+    display: block;
+  }
+
+  .editorial-intro__lead {
+    margin-bottom: 1.15rem;
+  }
+
+  .editorial-intro__lead h2 {
+    max-width: 15ch;
   }
 
   .section-heading,
