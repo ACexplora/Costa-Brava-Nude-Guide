@@ -260,12 +260,13 @@
     heroTrack.innerHTML = "";
     heroDots.innerHTML = "";
 
-    slides.forEach((beach, index) => {
-      const slide = document.createElement("article");
-      slide.className = "hero-carousel-slide";
-      slide.style.backgroundImage = `url("${beach.image}")`;
-      slide.setAttribute("aria-hidden", index === 0 ? "false" : "true");
-      heroTrack.appendChild(slide);
+      slides.forEach((beach, index) => {
+        const slide = document.createElement("article");
+        slide.className = "hero-carousel-slide";
+        slide.style.backgroundImage = `url("${beach.heroImage || beach.image}")`;
+        slide.style.backgroundPosition = beach.heroImagePosition || "center";
+        slide.setAttribute("aria-hidden", index === 0 ? "false" : "true");
+        heroTrack.appendChild(slide);
 
       const dot = document.createElement("button");
       dot.className = "hero-carousel-dot";
